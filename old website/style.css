@@ -1,0 +1,54 @@
+*{
+    margin:0;
+    padding:0;
+}
+body{
+    font-family: 'Akaya Telivigala', cursive;
+font-family: 'Raleway', sans-serif;
+font-family: 'Roboto', sans-serif;
+    background-image: url('bg.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position-x: -150px;
+}
+.container{
+    max-width: 80%;
+    padding: 35px;
+    margin: 25px;
+    text-align: center;
+    color:honeydew;
+}
+input, textarea{
+    width: 80%;
+    border: 1px solid purple;
+    border-radius: 10px;
+    outline: none;
+    margin: 3px;
+    padding: 5px;
+    font-size: 1em;
+}
+p{
+    font-size: 18px;
+}
+form{
+    margin: 30px auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.btn{
+    left: 0;
+    margin: 5px;
+    padding: 7px;
+    border: 1px solid blue;
+    border-radius: 10px;
+    outline: none;
+    color: white;
+    background: #0f6683;
+    cursor: pointer;
+}
+img{
+    width: 100%;
+    position: absolute;
+    z-index: -1;
+}

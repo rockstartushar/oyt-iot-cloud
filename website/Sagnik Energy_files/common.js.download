@@ -1,0 +1,8 @@
+let $f = (elementId) => {
+    return document.getElementById(elementId);
+}
+
+let $c = (className) => {
+    return document.getElementsByClassName(className);
+}
+

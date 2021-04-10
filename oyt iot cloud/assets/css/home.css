@@ -1,0 +1,126 @@
+html, body {
+    background-color: black;
+    z-index: 1;
+}
+/* Banner */
+.banner {
+    background-image: url('../../images/banner.jpg');
+    background-size: cover;
+    background-position: center center;
+    height: 30vw;
+    padding: 5vw;
+    margin-top: 5vw;
+}
+.bannertxt h1 {
+    margin-top: 2vw;
+    color: #8ac4d0;
+    font-size: 5vw;
+    text-shadow: 7px 6px 3px rgb(98 110 125 / 93%);
+}
+.bannertxt h1 span{
+    color: #f4d160;
+    text-decoration-line: overline;
+    text-decoration-color: #fbeeac;
+}
+/* Intro part */
+.iotintro{
+    background-image: url('../../images/intro1.jpg');
+    background-size: cover;
+    background-position: center center;
+    height: 110vw;
+}
+.introtxt {
+    text-align: center;
+}
+.introtxt p{
+    font-size: 10vw;
+    color: white;
+    opacity: 0.4;
+}
+.des{
+    padding: 10vw;
+    text-align: left;
+}
+.des p{
+    font-size: 7vw;
+    color: red;
+    opacity: 1;
+}
+.des hr{
+    width: 50%;
+    margin-bottom: 5vw;
+}
+.des li{
+    list-style: none;
+    font-size: 3vw;
+    color: red;
+    opacity:.7 ;
+}
+.des li img{
+    width: 15px;
+    height: 15px;
+    padding-top: 10px;
+}
+.introfooter{
+    text-align: center;
+}
+.introfooter a {
+    color: white;
+    font-size: 2vw;
+    text-decoration: none;
+    background-color: red;
+    padding: 1vw;
+    border-radius: 5%;
+}
+/* IoT Cloud */
+.iotcloud {
+    padding: 3vw;
+    background-image: url('../../images/iotcloud.png');
+    background-size: cover;
+    background-position: center center;
+    height: 30vw;
+}
+.iotcloud p{
+    text-align: center;
+    font-size: 3vw;
+    color: #aaaaaa;
+    opacity: .5;
+    text-decoration-line: underline;
+    text-decoration-color: black;
+}
+
+/* Our Cloud */
+.ourcloud {
+    background-image: url('image/banner.jpg');
+}
+/* categories, we serve */
+.category {
+    font-size: 2vw;
+    background-color: black;
+}
+.category p{
+    font-size: 3vw;
+    text-align: center;
+    color: white;
+}
+.category hr{
+    margin: auto;
+    width: 5%;
+    margin-bottom: 3vw;
+}
+.category table {
+    width: 90%;
+    color: white;
+    margin: auto;
+    text-align: center;
+    margin-bottom: 3vw;
+}
+@media only screen and (max-width: 600px) {
+    .banner {
+        margin-top: 70px;
+    }
+    .graphicintro img{
+        border: 1px solid black;
+        border-radius: 10px;
+    }
+}
