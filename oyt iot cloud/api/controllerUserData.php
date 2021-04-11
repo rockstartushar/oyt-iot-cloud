@@ -1,5 +1,14 @@
 <?php
 session_start();
+// generate json web token
+include_once 'config/core.php';
+include_once 'libs/php-jwt-master/src/BeforeValidException.php';
+include_once 'libs/php-jwt-master/src/ExpiredException.php';
+include_once 'libs/php-jwt-master/src/SignatureInvalidException.php';
+include_once 'libs/php-jwt-master/src/JWT.php';
+use \Firebase\JWT\JWT;
+ 
+// generate jwt will be here
 require "connection.php";
 $email = "";
 $name = "";
@@ -108,11 +117,35 @@ if (isset($_POST['login'])) {
         if(password_verify($password, $fetch_pass)){
             $_SESSION['email'] = $email;
             $status = $fetch['status'];
-            echo "123";
+            $user = $fetch['name'];
+            $email = $fetch['email'];
+            $id = $fetch['id'];
             if ($status == 'verified') {
                 $_SESSION['email'] = $email;
                 $_SESSION['password'] = $password;
                 echo $_SESSION['password'];
+                $token = array(
+                    "iat" => $issued_at,
+                    "exp" => $expiration_time,
+                    "iss" => $issuer,
+                    "data" => array(
+                        "id" => $id,
+                        "fullname" => $name,
+                        "email" => $email
+                    )
+                 );
+              
+                 // set response code
+                 http_response_code(200);
+              
+                 // generate jwt
+                 $jwt = JWT::encode($token, $key);
+                 echo json_encode(
+                         array(
+                             "message" => "Successful login.",
+                             "jwt" => $jwt
+                         )
+                     );
                 header('location: createproject.php');
             } else {
                 $info = "It's look like you haven't still verify your email - $email";
