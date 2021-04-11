@@ -6,47 +6,9 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="../assets/css/main.css" />
 	</head>
+    <link rel="stylesheet" href="createproject.css">
     <style>
-        .userprojects{
-            padding: 20px;
-        }
-        .create{
-            margin: 20px;
-            padding: 20px;
-            border: 2px solid black;
-            color: white;
-            border-radius: 10px;
-            background-color: brown;
-        }
-        .modal {
-            display: none;
-            position: fixed;
-            left: 10%;
-            top: 10%;
-            background-color: white;
-            width: 70%;
-        }
-        span{
-            float: right;
-            color: black;
-            font-size: larger;
-            padding: 10px;
-        }
-        .modalform{
-            text-align: left;
-            margin: 20px auto;
-            display: flex;
-            flex-direction: column;
-        }
-        .modalform input, textarea {
-            padding: 10px;
-            margin: 5px;
-        }
-        .modalform .submit {
-            color: white;
-            background-color: red;
-            padding: 10px 10px;
-        }
+        
     </style>
 	<body>
 		<!-- Navbar -->
