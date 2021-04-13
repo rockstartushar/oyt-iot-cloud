@@ -14,41 +14,56 @@ a, button {
     pointer-events: visible;
 }
 /* Nav part */
+    
 .navbar {
     display: flex;
     background-color: black;
     position: fixed;
-    height: 90px;
+    height: 60px;
     z-index: 1;
-    font-size: 2vw;
+    font-size: 1.2vw;
+    font-family: sans-serif;
+    padding: 1vw 1vw 1vw 1vw;
 }
 .logo {
     width: 10%;
     display: flex;
-    height: 70%;
-    margin: 20px 35px;
+    height: 100%;
+    margin: 0px 35px;
 }
 .nav-list{
     display: flex;
     width: 60%;
-    margin: 20px;
 }
 .right-nav{
     display: flex;
-    margin: 20px;
     width: 25%;
+    padding-left: 20vw;
 }
 .nav-items{
-    padding: 10px;
+    margin-left: 1vw;
     text-decoration: none;
     color: white;
+    height: 35px;
+    text-align: center;
+    padding-left: 1vw;
+    padding-top: 1vw;
+    padding-right: 1vw;
+    margin-top: .5vw;
 }
 .nav-items:hover{
     background-color: grey;
 }
 .nav-items:active {
     background-color: #4CAF50;
-  }
+}
+.login {
+    border: 1px solid white;
+    border-color: transparent white transparent transparent;
+}
+.login:hover {
+    border: 0;
+}
 .drop {
     position: relative;
 }
@@ -70,6 +85,21 @@ a, button {
 -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.48);
 -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.48);
 }
+.explore-items{
+    text-decoration: none;
+    color: white;
+    height: 35px;
+    text-align: center;
+    padding-left: 1vw;
+    padding-top: 1vw;
+    padding-right: 1vw;
+}
+.explore-items:hover{
+    background-color: grey;
+}
+.explore-items:active {
+    background-color: #4CAF50;
+}
 .breadcrumb {
     display: none;
 }
@@ -78,6 +108,7 @@ a, button {
     text-align: center;
     color: white;
     background-color: black;
+    border-top: 1px solid white;
 }
 @media only screen and (max-width: 600px) {
     /* navbar reposive view */

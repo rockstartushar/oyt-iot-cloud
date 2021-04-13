@@ -6,20 +6,20 @@ html, body {
 .banner {
     background-image: url('../../images/banner.jpg');
     background-size: cover;
+    background-repeat: no-repeat;
     background-position: center center;
     height: 30vw;
     padding: 5vw;
-    margin-top: 5vw;
 }
 .bannertxt h1 {
     margin-top: 2vw;
-    color: #8ac4d0;
+    color: white;
     font-size: 5vw;
     text-shadow: 7px 6px 3px rgb(98 110 125 / 93%);
 }
 .bannertxt h1 span{
-    color: #f4d160;
-    text-decoration-line: overline;
+    color: whitesmoke;
+    text-decoration-line: underline;
     text-decoration-color: #fbeeac;
 }
 /* Intro part */
@@ -33,7 +33,7 @@ html, body {
     text-align: center;
 }
 .introtxt p{
-    font-size: 10vw;
+    font-size: 7vw;
     color: white;
     opacity: 0.4;
 }
@@ -42,7 +42,7 @@ html, body {
     text-align: left;
 }
 .des p{
-    font-size: 7vw;
+    font-size: 5vw;
     color: red;
     opacity: 1;
 }
@@ -74,7 +74,7 @@ html, body {
 }
 /* IoT Cloud */
 .iotcloud {
-    padding: 3vw;
+    padding-top: 13vw;
     background-image: url('../../images/iotcloud.png');
     background-size: cover;
     background-position: center center;
@@ -88,10 +88,9 @@ html, body {
     text-decoration-line: underline;
     text-decoration-color: black;
 }
-
 /* Our Cloud */
 .ourcloud {
-    background-image: url('image/banner.jpg');
+    background-image: url('../../images/banner.jpg');
 }
 /* categories, we serve */
 .category {

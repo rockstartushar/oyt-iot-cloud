@@ -1,6 +1,7 @@
 body{
-    background-color: darkgrey;
+    background-color: black;
     overflow-x: hidden;
+    color: white ;
 }
 .sec {
     margin: auto 5%;
@@ -35,6 +36,7 @@ body{
 
 .contact-view table{
     width: 40%;
+    text-align: left;
 }
 
 .queryform {
