@@ -117,11 +117,12 @@ a, button {
     }
     .logo {
         width: 20%;
+        margin-top: 3vw;
     }
     .breadcrumb {
         display: flex;
         flex-direction: column;
-        margin: 30px 20px 0px 55%;
+        margin: 20px 20px 0px 50%;
         width: 12%;
         float: right;
         color: white;

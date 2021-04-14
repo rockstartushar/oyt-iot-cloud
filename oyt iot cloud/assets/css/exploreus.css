@@ -3,35 +3,71 @@ body{
     overflow-x: hidden;
     color: white ;
 }
+/* Banner */
+.banner {
+    background-image: url('../../images/explorebanner.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    height: 30vw;
+    padding: 5vw;
+}
+.bannertxt h1 {
+    margin-top: 2vw;
+    color: white;
+    font-size: 5vw;
+    text-shadow: 7px 6px 3px rgb(98 110 125 / 93%);
+}
+.bannertxt h1 span{
+    color: whitesmoke;
+    text-decoration-line: underline;
+    text-decoration-color: #fbeeac;
+}
 .sec {
     margin: auto 5%;
 }
 .project {
-    display: inline-flex;
+    display: inline-block;
     width: 100%;
+}
+.sec hr{
+    width: 50%;
+    margin-bottom: 1vw;
+}
+.sec h2{
+    font-size: 3vw;
 }
 .project-card{
     display: flex;
     flex-direction: column;
-    width: 200px;
     height: 300px;
     background-color: white;
     text-align: left;
-    margin: 20px;
+    margin: 2pc 4vw;
+    float: left;
+    border: 2px solid white;
+    border-radius: 3%;
+    color: black;
+    width: 22%;
 }
 .project-card img{
     height: 60%;
     width: 100%;
-    border: 2px solid black;
 }
 .client img{
-    width: 20%;
-    border: 2px solid white;
-    border-radius: 50%;
-    margin: 10px;
+    width: 9%;
+    /* border: 2px solid white; */
+    /* border-radius: 50%; */
+    margin: 0 1vw;
 }
 .contact-view {
     display: flex;
+    max-width: 20%;
+    overflow-x: hidden;
+}
+.footerlogo{
+    margin: auto 5vw auto 0;
+    width: 40%;
 }
 
 .contact-view table{
