@@ -25,7 +25,112 @@ body{
 }
 .sec {
     margin: auto 5%;
+    margin-top: 3rem;
 }
+main {
+    height: 20vw;
+    display: grid;
+    grid-template-columns: 10% 80% 10%;
+    align-items: center;
+    margin: 14vw auto;
+  }
+  
+  .crouselbtn {
+    width: 5vw;
+    height: 5vw;
+    border-radius: 50%;
+    border: 0;
+    background-color: white;
+    color: black;
+    font: inherit;
+    cursor: pointer;
+    transition: background-color 0.4s ease;
+  }
+  
+  .crouselbtn:hover {
+    background-color: black;
+    font-weight: 700;
+    color: white;
+  }
+  
+  .crouselbtn:focus {
+    outline: 0;
+  }
+  
+  .crouselbtn:active {
+    transform: scale(0.95);
+  }
+  
+  .crouselbtn#next {
+    justify-self: end;
+  }
+  
+  .card-container {
+    position: relative;
+  }
+  
+  .card {
+    width: 90%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: black;
+    transition: all 0.4s ease;
+    opacity: 0;
+    pointer-events: none;
+  }
+  
+  .card * {
+    width: 100%;
+  }
+  
+  .card-image {
+    height: 41rem;
+    overflow: auto;
+    border-radius: 0.6rem;
+    transition: transform 0.3s ease;
+  }
+  
+  .card-image img {
+    border-radius: 0.6rem;
+  }
+  
+  .card-image::-webkit-scrollbar {
+    width: 0;
+  }
+  
+  .card:hover .card-image {
+    transform: scale(1.02);
+  }
+  
+  .card a {
+    display: block;
+    font-weight: 400;
+    margin-top: 2.5rem;
+    text-align: center;
+    color: whitesmoke;
+  }
+  
+  .card.view {
+    opacity: 1;
+    pointer-events: all;
+  }
+  
+  @media (max-width: 1350px) {
+    .card-image {
+      height: 30vw;
+    }
+  }
+  
+  .crouselbtn.btn {
+    background: transparent;
+    position: relative;
+    z-index: 2;
+  }
+  
+   
+/* Projects */
 .project {
     display: inline-block;
     width: 100%;
@@ -60,23 +165,100 @@ body{
     /* border-radius: 50%; */
     margin: 0 1vw;
 }
-.contact-view {
-    display: flex;
-    max-width: 20%;
-    overflow-x: hidden;
+.contact hr{
+    margin-bottom: 5pc;
+    width: 100%;
 }
-.footerlogo{
-    margin: auto 5vw auto 0;
+.address {
     width: 40%;
 }
-
+.contact-view {
+    display: flex;
+    /* max-width: 100%; */
+    /* overflow-x: hidden;*/
+}
+.contact-view hr{
+    width: 100%;
+}
+.footerlogo{
+    width: 50%;
+    margin: 0 auto;
+}
+.footerlogo img{
+    width: 60%;
+}
+address {
+    margin: 0 auto;
+    width: 50%;
+}
 .contact-view table{
     width: 40%;
     text-align: left;
 }
-
-.queryform {
+.contactdetails{
+    margin-right: 10%;
+    width: 30%;
+}
+.contactdetails p, .querysec p{
+    font-size: 3vw;
+    margin-bottom: 20px;
+}
+.contactdetails a{
+    color: white;
+    text-align: center;
+}
+.contactdetails .icons{
+    margin: 20px auto;
+    margin-top: 3pc;
+    font-size: larger;
+    font-weight: bolder;
+    text-align: center;
+    display: inline-flex;
+}
+.contactdetails .icons p{
+    color: black;
+    width: 20%;
+    margin: auto 10px;
+}
+.querysec, .queryform {
     width: 30%;
     display: flex;
     flex-direction: column;
+    padding: 1%;
+}
+.queryform *{
+    border-radius: 10%;
+    width: 100%;
+    padding: .5vw;
+    outline: none;
+    margin: .5vw;
+}
+
+@media only screen and (max-width: 600px) {
+    .contact-view{
+        display: flex;
+        flex-direction: column;
+    }
+    .footerlogo{
+        margin-top: 10px;
+    }
+    .footerlogo img{
+        width: 15vw;
+    }
+    .contact-view *{
+        width: 90%;
+    }
+    .crouselbtn {
+        width: 10vw;
+        height: 10vw;
+    }
+    h2{
+        font-size: 5vw;
+    }
+    p{
+        font-size: 20px;
+    }
+    a{
+        font-size: 2.5vw;
+    }
 }
