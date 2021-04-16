@@ -3,15 +3,21 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Signup Form</title>
-    <link rel="stylesheet" href="assets/css/main.css" />
-    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width" />
+    <title>OYT IOT Cloud - Signup Form</title>
+    <link rel="stylesheet" href="./../assets/css/signinup.css">
+    <link rel="stylesheet" href="./../assets/css/main.css">
 </head>
 <body>
     <div class="container">
-            <form action="signup-user.php" method="POST" autocomplete="">
-            <h1>Do you want to explore our iot cloud? </h1>
-                <h3 class="text-center">Signup to get started!</h3>
+        <div class="left-text top-text">
+            <h2>OYT IoT Cloud<br> Signup Page</h2>
+            <p>Do you want to explore our iot cloud? Signup Fast!</p>
+        </div>
+        <div class="main">
+            <form class="signup-form" action="signup-user.php" method="POST" autocomplete="">
+            <h1></h1>
+                <h2 class="text-center">Signup Form</h2>
                 <p class="text-center">It's quick and easy.</p>
                 <?php
                 if(count($errors) == 1){
@@ -51,7 +57,7 @@
                     <input class="form-control" type="password" name="cpassword" placeholder="Confirm password" required>
                 </div>
                 <div class="form-group">
-                    <input class="form-control button" type="submit" name="signup" value="Signup">
+                    <button class="form-control submit-btn" type="submit" name="signup">Signup</button>
                 </div>
                 <div class="link login-link">Already a member? <a href="login-user.php">Login here</a></div>
             </form>

@@ -17,7 +17,7 @@ alert("1");
 								unit,
 								created_at
 							}) =>
-							(tabledata = `<tr>
+							(tabledata += `<tr>
 											<td>${id}</td>
 											<td>${device_name}</td>
 											<td>${datatype}</td>
@@ -27,7 +27,7 @@ alert("1");
 						)
 
 						// $("#destiny-area").prepend(evt + "<br />");
-						document.getElementById("divtable").innerHTML += tabledata;
+						document.getElementById("divtable").innerHTML = tabledata;
 						document.addEventListener("DOMContentLoaded", Comet.success);
 					},
 					complete: function() {

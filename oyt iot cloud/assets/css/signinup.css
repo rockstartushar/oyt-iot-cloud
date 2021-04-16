@@ -1,0 +1,98 @@
+.container{
+    display: inline-flex;
+    width: 100%;
+    height: 100%;
+    color: rgb(197, 197, 197);
+    font-size: 3vw; 
+}
+.left-text{
+    width: 30%;
+    background-color: black;
+    /* background-image: url('../../images/banner.jpg'); */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+.left-text h2{
+    margin-top: 3vw;
+    margin-left: 2.2vw;
+    color: white;
+    font-size: 5vw;
+    text-shadow: 7px 6px 3px rgb(98 110 125 / 93%);
+}
+.left-text p{
+    margin-top: 20px;
+    margin-left: 2.5vw;
+    color: white;
+    font-size: 3vw;
+    /* text-shadow: 7px 6px 3px rgb(98 110 125 / 93%); */
+}
+.main{
+    width: 70%;
+    background-image: linear-gradient(purple,blue);
+}
+.login-form, .signup-form, .forgot-code-form, .otp-form, .reset-form{
+    margin: auto;
+    width: 40%;
+    margin-top: 15%;
+    border-radius: 20px;
+    background-color: blueviolet;
+    padding: 20px;
+    opacity :.7;
+    font-size: 2vw;
+}
+.login-form:hover, .signup-form:hover,.forgot-code-form:hover, .otp-form:hover, .reset-form:hover {
+    opacity: 1;
+}
+.login-form input, .signup-form input, .forgot-code-form input, .otp-form input, .reset-form input{
+    color: black;
+}
+.login-form *, .signup-form *, .forgot-code-form *, .otp-form *, .reset-form *{
+    padding: 5px;
+    width: 100%;
+    outline: none;
+    border-radius: 5px;
+    border: none;
+    font-size: 1vw;
+    color: white;
+}
+.login-form *:focus, .signup-form *:focus, .forgot-code-form *:focus, .otp-form *:focus, .reset-form *:focus{
+    border: 2px solid white;
+    color: black;
+}
+.forgot-link{
+    text-align: right;
+}
+.submit-btn, .forgot-submit{
+    background-color: blue;
+    outline: none;
+    border: none;       
+    color: white;
+    cursor: pointer;
+    width: auto;
+}
+.submit-btn:hover, .forgot-submit:hover {
+    opacity: .5;
+}
+@media screen and (max-width: 600px) {
+    .container{
+        display: flex;
+        flex-direction: column;
+        overflow: auto;
+    }
+    .left-text{
+        width: 100%;
+        height: 25%;
+    }
+    .main{
+        width: 100%;
+        height: 75%;
+    }
+    .login-form, .signup-form, .forgot-code-form, .otp-form, .reset-form{
+        margin-top: 10%;
+        width: 60%;
+    }
+    .login-form *, .signup-form *, .forgot-code-form *, .otp-form *, .reset-form *{
+        font-size: 2.5vw;
+    }
+}

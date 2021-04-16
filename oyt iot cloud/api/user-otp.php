@@ -9,14 +9,19 @@ if($email == false){
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width" />
     <title>Code Verification</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./../assets/css/signinup.css">
+    <link rel="stylesheet" href="./../assets/css/main.css">
 </head>
 <body>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4 offset-md-4 form">
+<div class="container">
+        <div class="left-text top-text">
+            <h2>OYT IoT Cloud<br> Email Verification Page</h2>
+            <p>You are just one step away from using our IoT Cloud services.</p>
+        </div>
+        <div class="main">
+            <div class="otp-form">
                 <form action="user-otp.php" method="POST" autocomplete="off">
                     <h2 class="text-center">Code Verification</h2>
                     <?php 
@@ -45,12 +50,11 @@ if($email == false){
                         <input class="form-control" type="number" name="otp" placeholder="Enter verification code" required>
                     </div>
                     <div class="form-group">
-                        <input class="form-control button" type="submit" name="check" value="Submit">
+                        <button class="form-control submit-btn" type="submit" name="check">Submit</button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
-    
 </body>
 </html>

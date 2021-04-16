@@ -8,31 +8,35 @@ if($_SESSION['info'] == false){
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width" />
     <title>Login Form</title>
-    <link rel="stylesheet" href="assets/css/main.css" />
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./../assets/css/signinup.css">
+    <link rel="stylesheet" href="./../assets/css/main.css">
 </head>
 <body>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4 offset-md-4 form login-form">
-            <?php 
-            if(isset($_SESSION['info'])){
-                ?>
-                <div class="alert alert-success text-center">
-                <?php echo $_SESSION['info']; ?>
-                </div>
-                <?php
-            }
-            ?>
+<div class="container">
+        <div class="left-text top-text">
+            <h2>OYT IoT Cloud<br> Password Changed Page</h2>
+            <p>Your New Password is all set, successfully.</p>
+        </div>
+        <div class="main">
+            <div class="login-form">
                 <form action="login-user.php" method="POST">
+                    <?php 
+                    if(isset($_SESSION['info'])){
+                        ?>
+                        <div class="alert alert-success text-center">
+                        <?php echo $_SESSION['info']; ?>
+                        </div>
+                        <?php
+                    }
+                    ?>
                     <div class="form-group">
-                        <input class="form-control button" type="submit" name="login-now" value="Login Now">
+                        <button class="form-control submit-btn" type="submit" name="login-now">Login Now</button>
                     </div>
                 </form>
             </div>
         </div>
-    </div>
-    
+    </div>   
 </body>
 </html>

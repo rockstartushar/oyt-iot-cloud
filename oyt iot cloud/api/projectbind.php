@@ -10,10 +10,11 @@ function mysqli_result($res, $row, $field=0) {
     $datarow = $res->fetch_array();
     return $datarow[$field]; 
 }
-while (mysqli_result(mysqli_query($con, "select count(*) from userproject where id > $id"), 0, 0) < 1) {
-	usleep(50000);
-}
+$i =0;
 
+while (mysqli_result(mysqli_query($con, "select count(*) from userproject where id > $id"), 0, 0) < 1) {
+    usleep(50000);
+}
 $query = mysqli_query($con,"select * from userproject order by id");
 
 $data = array();

@@ -9,14 +9,19 @@ if($email == false){
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width" />
     <title>Code Verification</title>
-    <link rel="stylesheet" href="assets/css/main.css" />
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./../assets/css/signinup.css">
+    <link rel="stylesheet" href="./../assets/css/main.css">
 </head>
 <body>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4 offset-md-4 form">
+<div class="container">
+        <div class="left-text top-text">
+            <h2>OYT IoT Cloud<br> Reset Code Page</h2>
+            <p>To reset your password, verify your code faster.</p>
+        </div>
+        <div class="main">
+            <div class="reset-form">
                 <form action="reset-code.php" method="POST" autocomplete="off">
                     <h2 class="text-center">Code Verification</h2>
                     <?php 
@@ -45,7 +50,7 @@ if($email == false){
                         <input class="form-control" type="number" name="otp" placeholder="Enter code" required>
                     </div>
                     <div class="form-group">
-                        <input class="form-control button" type="submit" name="check-reset-otp" value="Submit">
+                        <button class="form-control submit-btn" type="submit" name="check-reset-otp">Submit</button>
                     </div>
                 </form>
             </div>

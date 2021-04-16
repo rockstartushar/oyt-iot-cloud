@@ -3,17 +3,21 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Forgot Password</title>
-    <link rel="stylesheet" href="assets/css/main.css" />
-    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width" />
+    <title>OYT IoT Cloud - Forgot Password</title>
+    <link rel="stylesheet" href="./../assets/css/signinup.css">
+    <link rel="stylesheet" href="./../assets/css/main.css">
 </head>
 <body>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4 offset-md-4 form">
+<div class="container">
+        <div class="left-text top-text">
+            <h2>OYT IoT Cloud<br> Forgot Password Page</h2>
+            <p>Don't worry! You will get a new password, now!</p>
+        </div>
+        <div class="main">
+            <div class="forgot-code-form">
                 <form action="forgot-password.php" method="POST" autocomplete="">
-                    <h2 class="text-center">Forgot Password</h2>
-                    <p class="text-center">Enter your email address</p>
+                    <h2 class="text-center">Forgot Password Form</h2>
                     <?php
                         if(count($errors) > 0){
                             ?>
@@ -28,10 +32,10 @@
                         }
                     ?>
                     <div class="form-group">
-                        <input class="form-control" type="email" name="email" placeholder="Enter email address" required value="<?php echo $email ?>">
+                        <input class="email" type="email" name="email" placeholder="Enter your email address" required value="<?php echo $email ?>">
                     </div>
                     <div class="form-group">
-                        <input class="form-control button" type="submit" name="check-email" value="Continue">
+                        <button class="forgot-submit" type="submit" name="check-email">Continue</button>
                     </div>
                 </form>
             </div>

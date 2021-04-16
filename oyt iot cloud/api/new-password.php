@@ -9,16 +9,21 @@ if($email == false){
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width" />
     <title>Create a New Password</title>
-    <link rel="stylesheet" href="assets/css/main.css" />
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./../assets/css/signinup.css">
+    <link rel="stylesheet" href="./../assets/css/main.css">
 </head>
 <body>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4 offset-md-4 form">
+<div class="container">
+        <div class="left-text top-text">
+            <h2>OYT IoT Cloud<br> Set New Password Page</h2>
+            <p>Set a new & strong password.</p>
+        </div>
+        <div class="main">
+            <div class="login-form">
                 <form action="new-password.php" method="POST" autocomplete="off">
-                    <h2 class="text-center">New Password</h2>
+                    <h2 class="text-center">Set New Password </h2>
                     <?php 
                     if(isset($_SESSION['info'])){
                         ?>
@@ -48,7 +53,7 @@ if($email == false){
                         <input class="form-control" type="password" name="cpassword" placeholder="Confirm your password" required>
                     </div>
                     <div class="form-group">
-                        <input class="form-control button" type="submit" name="change-password" value="Change">
+                        <button class="form-control submit-btn" type="submit" name="change-password">Change</button>
                     </div>
                 </form>
             </div>

@@ -1,6 +1,6 @@
 alert("few");
 var modal = document.querySelector(".modal");
-var span = document.querySelector("span");
+var close = document.querySelector(".close");
 var createbtn = document.querySelector(".create");
 createbtn.onclick = function (){
     modal.style.display="block";
@@ -10,9 +10,10 @@ window.onclick= function(event) {
         modal.style.display="none";        
     }
 }
-span.onclick = function (){
-    modal.style.display="none ";
+close.onclick = function (){
+    modal.style.display="none";
 }
+
         Comet = {
 			connect: function() {
 				return $.ajax({
@@ -21,6 +22,7 @@ span.onclick = function (){
 					success: function(evt, request) {
 						if(typeof(evt)=="string"){
 						    evt = JSON.parse(evt);
+							console.log(evt);
                         }
 						alert(typeof evt);
 						let projects = "";
@@ -50,7 +52,7 @@ span.onclick = function (){
 			},
 
 			send: function(...projectData) {
-				alert(projectData[0]);
+				// if(projectData[0]=="xyz")
 				$.post("addprojects.php", {
 					project_name: projectData[0],
 					project_des: projectData[1],
@@ -59,7 +61,37 @@ span.onclick = function (){
 		}
 
 		$(document).ready(function() {
-			$("#createproject").click(function() {
+			$.ajax({
+				url: "project1stbind.php",
+				method: "GET",
+				success: function(evt, request) {
+					if(typeof(evt)=="string"){
+						evt = JSON.parse(evt);
+						console.log(evt);
+					}
+					alert(typeof evt);
+					let projects = "";
+					evt.forEach(
+						({
+							id,
+							project_name,
+							project_des,
+							created_at
+						}) =>
+						(projects += `<tr>
+										<td>${id}</td>
+										<td>${project_name}</td>
+										<td>${project_des}</td>
+										<td>${created_at}</td>
+									</tr>`)
+					)
+			
+					// $("#destiny-area").prepend(evt + "<br />");
+					document.getElementById("divtable").innerHTML += projects;
+					document.addEventListener("DOMContentLoaded", Comet.success);
+				}
+			});
+			$("#createprojectbtn").click(function() {
 				var content1 = $("#project_name").val();
 				var content2 = $("#project_des").val();
 				$("#project_name").val('');
@@ -77,6 +109,6 @@ span.onclick = function (){
                     Comet.send(content1, content2);
 				}
 			});
-
 			Comet.connect();
+			Comet.send();
 		});
