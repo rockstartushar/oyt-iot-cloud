@@ -37,6 +37,9 @@ if($_SESSION['info'] == false){
                 </form>
             </div>
         </div>
-    </div>   
+    </div>  
+    <div class="footer">
+        oxymoratechnology.pvt.ltd.
+    </div> 
 </body>
 </html>

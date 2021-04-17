@@ -5,6 +5,7 @@
     <title>OYT IOT Cloud </title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="./../assets/css/font-awesome.min.css">
     <link rel="stylesheet" href="./../assets/css/main.css" />
     <link rel="stylesheet" href="./../assets/css/home.css" />
 </head>
@@ -20,7 +21,7 @@
             <a class="nav-items" href="ourcloud.php">Our Cloud</a>
             <div class="nav-items drop">
                 <div class="explore">
-                    <a class="nav-items" href="exploreus.php">Explore Us <span style="color: white;">&#x25BC;</span></a>
+                    <a class="nav-items" href="exploreus.php">Explore Us <i style="color: #132c33;" class="fa fa-caret-down"></i></a>
                        <div class="explore-list">
                            <a class="explore-items" href="exploreus.php#ourclient">Our Client</a>
                            <a class="explore-items" href="exploreus.php#projects">Projects</a>

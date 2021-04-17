@@ -83,6 +83,7 @@ if ($email != false && $password != false) {
         <div class="welcome">
             <p>Welcome, <?php echo $fetch_info['name'] ?></p>
             <!-- <p><button>Edit Account</button></p> -->
+            <p>Projects Added</p>
         </div>
         <table id="divtable">
             <tr>
@@ -120,7 +121,7 @@ if ($email != false && $password != false) {
         <div class="help faqsdiv">
             <h2>OYT IoT Cloud Discussion Forum</h2>
             <hr>
-            <h3>We also provide a place for our users to interect, discuss, & find solutions to any of there platform related problem.</h3>
+            <span>We also provide a place for our users to interect, discuss, & find solutions to any of there platform related problem.</span>
             <div id="faqs" class="openfaqsdiv">
                 <a href="#faqs" class="openfaqsbtn"><span>Refer FAQs<span style="color: white;">▼</span></span></a>
             </div>
@@ -140,9 +141,9 @@ if ($email != false && $password != false) {
                 <p>Still, having query? find answers in discussion forum:) <a href="oytiotcloudforum.php">OYT IOT CLOUD DISCUSSION FORUM</a></p>
             </div>
         </div>
-        <div class="footer">
-            oxymoratechnology.pvt.ltd.
-        </div>
+    </div>
+    <div class="footer">
+        oxymoratechnology.pvt.ltd.
     </div>
     <!-- Scripts -->
     <script src="./../assets/js/jquery.min.js"></script>

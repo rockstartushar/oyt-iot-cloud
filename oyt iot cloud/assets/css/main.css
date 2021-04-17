@@ -17,13 +17,14 @@ a, button {
     
 .navbar {
     display: flex;
-    background-color: black;
+    background-color: #d8e3e7;
     position: fixed;
     height: 60px;
     z-index: 1;
     font-size: 1.2vw;
     font-family: sans-serif;
     padding: 1vw 1vw 1vw 1vw;
+    box-shadow: 0.02em 0.05em 0.5em rgb(0 0 0 / 48%);
 }
 .logo {
     width: 10%;
@@ -43,7 +44,7 @@ a, button {
 .nav-items{
     margin-left: 1vw;
     text-decoration: none;
-    color: white;
+    color: #132c33;
     height: 35px;
     text-align: center;
     padding-left: 1vw;
@@ -52,7 +53,7 @@ a, button {
     margin-top: .5vw;
 }
 .nav-items:hover{
-    background-color: grey;
+    color: #126e82;
 }
 .nav-items:active {
     background-color: #4CAF50;

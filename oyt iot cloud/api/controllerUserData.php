@@ -13,7 +13,8 @@ require "connection.php";
 $email = "";
 $name = "";
 $errors = array();
-
+$jwt="dvs";
+setcookie('jwt',$jwt,time()+3600);
 
 //if user signup button
 if (isset($_POST['signup'])) {
@@ -123,7 +124,7 @@ if (isset($_POST['login'])) {
             if ($status == 'verified') {
                 $_SESSION['email'] = $email;
                 $_SESSION['password'] = $password;
-                echo $_SESSION['password'];
+                // echo $_SESSION['password'];
                 $token = array(
                     "iat" => $issued_at,
                     "exp" => $expiration_time,
@@ -137,15 +138,16 @@ if (isset($_POST['login'])) {
               
                  // set response code
                  http_response_code(200);
-              
                  // generate jwt
                  $jwt = JWT::encode($token, $key);
-                 echo json_encode(
-                         array(
-                             "message" => "Successful login.",
-                             "jwt" => $jwt
-                         )
-                     );
+                //  echo json_encode(
+                //          array(
+                //              "message" => "Successful login.",
+                //              "jwt" => $jwt
+                //          )
+                //      );
+                setcookie('jwt',$jwt);
+                // echo $_COOKIE[$jwt];
                 header('location: createproject.php');
             } else {
                 $info = "It's look like you haven't still verify your email - $email";

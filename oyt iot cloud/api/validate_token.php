@@ -14,17 +14,19 @@ include_once 'libs/php-jwt-master/src/ExpiredException.php';
 include_once 'libs/php-jwt-master/src/SignatureInvalidException.php';
 include_once 'libs/php-jwt-master/src/JWT.php';
 use \Firebase\JWT\JWT;
-
+require "controllerUserData.php";
 // retrieve given jwt here
 // get posted data
-$data = json_decode(file_get_contents("php://input"));
+// $data = json_decode(file_get_contents("php://input"));
 //  echo $data;
 // get jwt
-$jwt=isset($data->jwt) ? $data->jwt : "";
+// $jwt=isset($data->jwt) ? $data->jwt : "";
 //  echo $jwt;
 // decoding jwt here
 // if jwt is not empty
-if($jwt){
+    echo isset($_COOKIE['jwt']);
+    $jwt =$_COOKIE['jwt'];
+    if($jwt){
     // if decode succeed, show user details
     try {
         // decode jwt

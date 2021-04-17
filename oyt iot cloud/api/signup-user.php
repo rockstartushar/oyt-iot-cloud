@@ -61,6 +61,10 @@
                 </div>
                 <div class="link login-link">Already a member? <a href="login-user.php">Login here</a></div>
             </form>
+        </div>
+    </div>
+    <div class="footer">
+        oxymoratechnology.pvt.ltd.
     </div>
 </body>
 </html>

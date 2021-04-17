@@ -56,5 +56,8 @@ if($email == false){
             </div>
         </div>
     </div>
+    <div class="footer">
+        oxymoratechnology.pvt.ltd.
+    </div>
 </body>
 </html>
