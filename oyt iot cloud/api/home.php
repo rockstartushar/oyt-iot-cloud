@@ -52,8 +52,8 @@
                 </div>
         </div>
         <div class="navbottom">
-            <a class="nav-items login" href="login-user.php">Login</a>
-            <a class="nav-items" href="signup-user.php">Sign Up</a>
+            <a class="nav-items login" href`="login-user.php">Login</a>
+            <a class="nav-items signup" href="signup-user.php">Sign Up</a>
         </div>
     </div>
     <br>

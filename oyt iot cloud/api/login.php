@@ -8,30 +8,28 @@ include_once 'libs/php-jwt-master/src/JWT.php';
 use \Firebase\JWT\JWT;
  
 // generate jwt will be here
-require "connection.php";
+require "controllerUserData.php";
 $email = "";
 $name = "";
 $errors = array();
-$data = json_decode(file_get_contents("php://input"));
-// echo "refo";
-if($_POST){
-// $email = mysqli_real_escape_string($con, $_POST['email']);
-// $password = mysqli_real_escape_string($con, $_POST['password']);
+// header('location: createproject.php');
 
-    $email = $data->email;
-    $password = $data->password;
+// if(isset($_POST['form_data'])){
+    // $data = json_decode(file_get_contents("php://input"));
+$email = mysqli_real_escape_string($con, $_POST['email']);
+// echo $email;
+
+$password = mysqli_real_escape_string($con, $_POST['password']);
+    // $email = "test7@gmail.com";
+    // echo $email;
+    // $password = $data->password;
+    // $password= "test7";
+    // $errors['email']="vdc";
 $check_email = "SELECT * FROM usertable WHERE email = '$email'";
 $res = mysqli_query($con, $check_email);
 if (mysqli_num_rows($res) > 0) {
     $fetch = mysqli_fetch_assoc($res);
     $fetch_pass = $fetch['password'];
-    echo $fetch_pass;
-    echo "<br>";
-    echo $password;
-    // $password = password_hash($password, PASSWORD_BCRYPT);
-    // echo "<br>";
-    // echo $password;
-    // echo $password;
     if(password_verify($password, $fetch_pass)){
         $_SESSION['email'] = $email;
         $status = $fetch['status'];
@@ -52,6 +50,7 @@ if (mysqli_num_rows($res) > 0) {
                     "email" => $email
                 )
              );
+        $errors['email'] = "Successfull login";
           
              // set response code
              http_response_code(200);
@@ -65,7 +64,7 @@ if (mysqli_num_rows($res) > 0) {
                  );
             // setcookie('jwt',$jwt);
             // echo $_COOKIE[$jwt];
-            header('location: createproject.php');
+            // header('location: createproject.php');
         } else {
             $info = "It's look like you haven't still verify your email - $email";
             // $_SESSION['info'] = $info;
@@ -77,5 +76,5 @@ if (mysqli_num_rows($res) > 0) {
 } else {
     $errors['email'] = "It's look like you're not yet a member! Click on the bottom link to signup.";
 }
-}
+// }
 ?>

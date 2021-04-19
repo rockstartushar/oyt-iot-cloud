@@ -1,5 +1,5 @@
 <?php 
-require_once "login.php";
+require_once "controllerUserData.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -19,7 +19,7 @@ require_once "login.php";
             <p>Login with your email and password to access our services.</p>
         </div>
         <div class="main">
-                <form id="login_form" class="login-form">
+                <form id="login_form" class="login-form" action="login.php" method="POST">
                     <h2 class="text-center">Login Form</h2>
                     <?php
                     if (count($errors) > 0) {
@@ -43,6 +43,7 @@ require_once "login.php";
                     <div class="forgot-link"><a href="forgot-password.php">Forgot password?</a></div>
                     <div class="form-group">
                         <button class="submit-btn" type="submit">Login</button>
+                        <!-- <input type="submit" value="submit"> -->
                     </div>
                     <div class="signup-link">Not yet a member? <a href="signup-user.php">Signup now</a></div>
                 </form>
@@ -99,26 +100,38 @@ function getCookie(cname){
     }
     return "";
 }
-    var submit = document.querySelector(".submit-btn");
-        submit.onclick= function(){ 
+$(document).on('submit', '#login_form', function(){ 
+
          var login_form=$('#login_form');
          console.log(login_form);
         var obj=[];
         obj.email=$("#email").val();
         obj.password=$("#password").val();
         console.log(obj);
-     var form_data=JSON.stringify(login_form.serializeObject());
+    //  var form_data=JSON.stringify(login_form.serializeObject());
     //  console.log(form_data);
      // http request is here
-            alert("hello");
+            // alert("hello");
      // submit form data to api
+     var form_data = [
+         {
+             "email":"test7@gmail.com",
+             "password": "test7"
+         }
+     ]
+     form_data=JSON.stringify(form_data);
+     console.log(typeof form_data, form_data);
     $.ajax({
         url: "login.php",
         type : "POST",
         contentType : 'application/json',
-        data : form_data,
+        data : {email:obj.email, password:obj.password},
         success : function(result){
-            console.log(result.jwt,"jwt");
+            console.log(result,"jwt");
+            if(typeof(result) == "string"){
+                result=JSON.parse(result);
+            }
+            console.log(result, result.jwt);
             // store jwt to cookie
             setCookie("jwt", result.jwt, 1);
             console.log(getCookie("jwt"));
@@ -127,13 +140,13 @@ function getCookie(cname){
         // error response is here
         error: function(xhr, resp, text){
         // on error, tell the user login has failed & empty the input boxes
-        $('#response').html("<div class='alert alert-danger'>Login failed. Email or password is incorrect.</div>");
+        $('.alert').html("<div class='alert alert-danger'>Login failed. Email or password is incorrect.</div>");
         login_form.find('input').val('');
     }
     });
 
  return false;
-}
+});
 
     
     </script>

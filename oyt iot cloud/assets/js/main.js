@@ -24,10 +24,14 @@ function openNav(){
     if(list.style.display=="flex"){
         list.style.display="none";
         menu.innerHTML=`<a class="dash"></a><a class="dash"></a><a class="dash"></a>`;
-        menu.style.marginTop="30px";
+        // menu.style.marginTop="30px";
+        menu.style.fontSize="1em";
+        menu.style.margin="1em 1em";
     } else {
         list.style.display="flex";
-        menu.innerHTML="&times;";
-        menu.style.marginTop="18px";
+        menu.innerHTML="X";
+        menu.style.fontSize="2em";
+        menu.style.margin="0.4em 0.5em";
+        
     }
 }

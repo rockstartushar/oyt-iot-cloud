@@ -17,11 +17,13 @@ a, button {
     
 .navbar {
     display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     background-color: #d8e3e7;
     position: fixed;
     height: 60px;
+    width: 100%;
     z-index: 1;
-    font-size: 1.2vw;
     font-family: sans-serif;
     padding: 1vw 1vw 1vw 1vw;
     box-shadow: 0.02em 0.05em 0.5em rgb(0 0 0 / 48%);
@@ -42,6 +44,7 @@ a, button {
     padding-left: 20vw;
 }
 .nav-items{
+    font-weight: bold;
     margin-left: 1vw;
     text-decoration: none;
     color: #132c33;
@@ -58,13 +61,19 @@ a, button {
 .nav-items:active {
     background-color: #4CAF50;
 }
-.login {
+.login, .signup{
+    background-color: #132c33;
+    color: #d8e3e7;
+    border-radius: .5em;
+}
+.login:hover, .signup:hover{
+    color: #d8e3e7;
+    transform: scale(1.1);
+}
+/* .login {
     border: 1px solid white;
-    border-color: transparent white transparent transparent;
-}
-.login:hover {
-    border: 0;
-}
+    border-color: transparent #132c33 transparent transparent;
+} */
 .drop {
     position: relative;
 }
@@ -80,11 +89,12 @@ a, button {
     display: none;
     position: absolute;
     z-index: 1;
+    color: white;
     width: 160px;
-    background-color: black;
-    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.48);
--webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.48);
--moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.48);
+    background-color: #132c33;
+    box-shadow: 0.02em 0.05em 0.5em rgb(0 0 0 / 48%);
+    border-radius: .5em;
+    margin-top: 1px;
 }
 .explore-items{
     text-decoration: none;
@@ -95,12 +105,14 @@ a, button {
     padding-top: 1vw;
     padding-right: 1vw;
 }
+.explore-items:nth-child(2){
+    border-bottom: 1px solid #d8e3e7;
+    border-top: 1px solid #d8e3e7;
+}
 .explore-items:hover{
-    background-color: grey;
+    color: #51c4d3;
 }
-.explore-items:active {
-    background-color: #4CAF50;
-}
+
 .breadcrumb {
     display: none;
 }
@@ -118,24 +130,23 @@ a, button {
     }
     .logo {
         width: 20%;
-        margin-top: 3vw;
+        
     }
     .breadcrumb {
         display: flex;
         flex-direction: column;
-        margin: 20px 20px 0px 50%;
+        margin: 1em;
         width: 12%;
         float: right;
-        color: white;
+        color: #132c13;
         text-align: center;
-        font-size: xxx-large;
         font-weight: bolder;
     }
     .dash {
-        width: 100%;
+        width: 80%;
         height: 7px;
         background-color: transparent;
-        border-top: 5px solid white;
+        border-top: 5px solid #132c33;
         /* right: 10px; */
     }
     .navbox{

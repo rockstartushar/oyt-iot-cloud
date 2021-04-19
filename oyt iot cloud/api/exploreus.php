@@ -169,12 +169,12 @@
 						<p><a href=""><i class="fa fa-instagram"></i></a></p>
 					</div>
 				</div>
-				<div class="querysec">
+				<div class="querysec" >
 					<p>Ask your query?</p>
-					<form class="queryform" action="">
+					<form class="queryform" action="https://colorhunt.co/palette/273466">
 						<input type="email" name="email" id="queryemail" placeholder="Your Email">
 						<textarea name="" id="" cols="30" rows="3" placeholder="Your Query"></textarea>
-						<a href="">Send</a>
+						<button>Send</button>
 					</form>
 				</div>
 			</div>
