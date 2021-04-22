@@ -1,23 +1,46 @@
 // Intro section data rendering
-var timer=1;
-setInterval(showIntroData, 5000);
+var timer=0;
+setInterval(showIntroData, 2500);
 function showIntroData() {
     var txt= document.querySelector(".des");
+    // var txt2= document.querySelector(".des2");
+    // var txt3= document.querySelector(".des3");
     var introimg = document.querySelector(".iotintro");
-    switch(timer){
-        case 1:
-        txt.innerHTML='<p>Get!!</p><hr><li><span>&check; </span>Sign Up with verification</li><li><span>&check;</span> Login with same</li><li><span>&check;</span> Create project & add details</li>';
-        introimg.style.backgroundImage="url('../images/intro1.jpg')";
+    switch(timer%3){
+        case 0:
+        txt.innerHTML='<h1>Get!!</h1><hr><h5><span>&check; </span>Sign Up with verification</h5><h5><span>&check;</span> Login with same</h5><h5><span>&check;</span> Create project & add details</h5>';
+        introimg.classList.toggle("introimg1");
+        if(timer>2){
+          introimg.classList.toggle("introimg3"); 
+        }
+        break;
+        case 1: 
+        txt.innerHTML='<h1>Set!!</h1><hr><h5><span>&check;</span> Add your hardware devices!!</h5><h5><span>&check;</span>Select services you require </h5><h5><span>&check;</span> Configure your dashboard</h5>';
+        introimg.classList.toggle("introimg1");
+        introimg.classList.toggle("introimg2");
+        // introimg.classList.toggle("introimg3");
         break;
         case 2: 
-        txt.innerHTML='<p>Set!!</p><hr><li><span>&check;</span> Add your hardware devices!!</li><li><span>&check;</span>Select services you require </li><li><span>&check;</span> Configure your dashboard</li>';
-        introimg.style.backgroundImage="url('../images/intro2.jpg')";
-        break;
-        case 3: 
-        txt.innerHTML='<p>& Go...</p><hr><li><span>&check;</span> Real time Data visuals</li><li><span>&check;</span> Integration with multiple apps & Event driven services </li><li><span>&check;</span> & lot more to explore</li>';timer=0;
-        introimg.style.backgroundImage="url('../images/intro3.jpg')";
+        txt.innerHTML='<h1>& Go...</h1><hr><h5><span>&check;</span> Real time Data visuals</h5><h5><span>&check;</span> Integration with multiple apps & Event driven services </h5><h5><span>&check;</span> & lot more to explore</h5>';
+        introimg.classList.toggle("introimg2");
+        introimg.classList.toggle("introimg3");        
         break;
     }
     timer++;
 }
 showIntroData();
+
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.display === "block") {
+      panel.style.display = "none";
+    } else {
+      panel.style.display = "block";
+    }
+  });
+}

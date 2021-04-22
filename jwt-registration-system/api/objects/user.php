@@ -126,7 +126,7 @@ public function update(){
     $this->email=htmlspecialchars(strip_tags($this->email));
  
     // bind the values from the form
-    $stmt->bindParam(':firstname', $this->firstname);
+    $stmt->bindParam(':first name', $this->firstname);
     $stmt->bindParam(':lastname', $this->lastname);
     $stmt->bindParam(':email', $this->email);
  

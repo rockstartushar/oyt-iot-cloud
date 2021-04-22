@@ -1,34 +1,36 @@
-<?php require_once "controllerUserData.php"; ?>
+<!-- <?php
+//  require_once "controllerUserData.php"; ?> -->
 <?php
-$email = $_SESSION['email'];
-$password = $_SESSION['password'];
-if ($email != false && $password != false) {
-    $sql = "SELECT * FROM usertable WHERE email = '$email'";
-    $run_Sql = mysqli_query($con, $sql);
-    if ($run_Sql) {
-        $fetch_info = mysqli_fetch_assoc($run_Sql);
-        $status = $fetch_info['status'];
-        $code = $fetch_info['code'];
-        if ($status == "verified") {
-            if ($code != 0) {
-                header('Location: reset-code.php');
-            }
-        } else {
-            header('Location: user-otp.php');
-        }
-    }
-} else {
-    header('Location: login-user.php');
-}
+// $email = $_SESSION['email'];
+// $password = $_SESSION['password'];
+// if ($email != false && $password != false) {
+//     $sql = "SELECT * FROM usertable WHERE email = '$email'";
+//     $run_Sql = mysqli_query($con, $sql);
+//     if ($run_Sql) {
+//         $fetch_info = mysqli_fetch_assoc($run_Sql);
+//         $status = $fetch_info['status'];
+//         $code = $fetch_info['code'];
+//         if ($status == "verified") {
+//             if ($code != 0) {
+//                 header('Location: reset-code.php');
+//             }
+//         } else {
+//             header('Location: user-otp.php');
+//         }
+//     }
+// } else {
+//     header('Location: login-user.php');
+// }
 ?>
 <!DOCTYPE HTML>
 <html lang="en">
 
 <head>
-    <title><?php echo $fetch_info['name'] ?> | Projects</title>
+    <title>Projects of </title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="./../assets/css/main.css" />
+    <link rel="stylesheet" href="./../assets/css/font-awesome.min.css">
     <link rel="stylesheet" href="./../assets/css/createproject.css" />
 
 </head>
@@ -44,7 +46,7 @@ if ($email != false && $password != false) {
             <a class="nav-items" href="ourcloud.php">Our Cloud</a>
             <div class="nav-items drop">
                 <div class="explore">
-                    <a class="nav-items" href="exploreus.php">Explore Us <span style="color: white;">&#x25BC;</span></a>
+                    <a class="nav-items" href="exploreus.php">Explore Us <i class="fa fa-caret-down"></i></a>
                     <div class="explore-list">
                         <a class="explore-items" href="exploreus.php#ourclient">Our Client</a>
                         <a class="explore-items" href="exploreus.php#projects">Projects</a>
@@ -54,8 +56,8 @@ if ($email != false && $password != false) {
             </div>
         </div>
         <div class="right-nav">
-            <a class="nav-items login" href="logout-user.php">Logout</a>
-            <a class="nav-items" href="update-account.php">Update Account</a>
+            <a class="nav-items login" id="logout">Logout</a>
+            <a class="nav-items updatebtn">Update Account</a>
         </div>
         <div onclick="openNav()" class="breadcrumb">
             <a class="dash"></a>
@@ -76,12 +78,12 @@ if ($email != false && $password != false) {
         </div>
         <div class="navbottom">
             <a class="nav-items login" href="logout-user.php">Logout</a>
-            <a class="nav-items" href="update-account.php">Update Account</a>
+            <a class="nav-items updatebtn">Update Account</a>
         </div>
     </div>
     <div class="container">
         <div class="welcome">
-            <p>Welcome, <?php echo $fetch_info['name'] ?></p>
+            <p>Welcome, <span id="username"></span id="username"></p>
             <!-- <p><button>Edit Account</button></p> -->
             <p>Projects Added</p>
         </div>
@@ -97,11 +99,31 @@ if ($email != false && $password != false) {
             <a class="create">Create/Add Project</a>
         </div>
 
-        <div class="modal">
-            <a class="close">&times;</a>
+        <div class="updateaccountmodal">
+            <a class="updateaccountmodalclose">&times;</a>
+            <p>Update Account</p>
+            <hr>
+            <!-- <div class="usericondiv"><img src="./../images/icon/user.png" alt=""></div> -->
+            <form class="updateaccountmodalform">
+                <div>
+                    <input type="text" name="" id="name" placeholder="Your name">
+                </div>
+                <div>
+                    <input type="email" name="" id="email" placeholder="Your email">
+                </div>
+                <div>
+                    <input type="password" name="" id="password" placeholder="Your password">  
+                </div>
+                <div>
+                    <button class="submit-btn" id="">Update</button>
+                </div>
+            </form>
+        </div>
+        <div class="addprojectmodal">
+            <a class="addprojectmodalclose">&times;</a>
             <p>Create/Add Project</p>
             <hr>
-            <form class="modalform">
+            <form class="addprojectmodalform">
                 <div>
                     <input type="text" name="project_name" id="project_name" placeholder="Your project name">
                 </div>
@@ -151,6 +173,5 @@ if ($email != false && $password != false) {
     <script src="./../assets/js/util.js"></script>
     <script src="./../assets/js/main.js"></script>
     <script src="./../assets/js/projects.js"></script>
-</body>
-
+    </body>
 </html>

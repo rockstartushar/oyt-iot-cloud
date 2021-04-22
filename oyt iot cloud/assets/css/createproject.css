@@ -41,7 +41,7 @@
 .create:hover{
     opacity: .5;
 }
-.modal {
+.addprojectmodal, .updateaccountmodal {
     display: none;
     position: fixed;
     left: 25%;
@@ -51,24 +51,24 @@
     border: 1px solid white;
     border-radius: 10px;
 }
-.modal p{
+.addprojectmodal p, .updateaccountmodal p{
     font-size: 2vw;
     margin: 0 auto;
     width: 90%;
     padding-top: 2vw;
 }
-.close{
+.addprojectmodalclose, .updateaccountmodalclose{
     float: right;
     color: white;
     font-size: 3vw;
     margin: 8px;
     cursor: pointer;
 }
-.close:hover{
+.addprojectmodalclose:hover, .updateaccountmodalclose{
     border: .5px solid white;
     border-radius: 10px;
 }
-.modalform{
+.addprojectmodalform, .updateaccountmodalform{
     display: flex;
     flex-direction: column;
     margin: auto;
@@ -77,10 +77,10 @@
     /* opacity: .7; */
     font-size: 2vw;
 }
-.modalform input{
+.addprojectmodalform input, .updateaccountmodalform input{
     color: black;
 }
-.modalform *{
+.addprojectmodalform *, .updateaccountmodalform *{
     padding: 10px;
     width: 100%;
     outline: none;
@@ -89,10 +89,16 @@
     font-size: 1vw;
     color: white;
 }
-.modalform *:focus{
+.addprojectmodalform *:focus, .updateaccountmodalform *:focus{
     border: 2px solid white;
     color: black;
 }
+/* .usericondiv{
+    text-align: center;
+}
+.usericondiv img{
+    width: 30%;
+} */
 .submit-btn {
     width: 20%;
     background-color: blue;

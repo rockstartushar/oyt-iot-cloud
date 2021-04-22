@@ -43,7 +43,7 @@ if($email_exists && password_verify($data->password, $user->password)){
        "iat" => $issued_at,
        "exp" => $expiration_time,
        "iss" => $issuer,
-       "data" => array(
+       "data" => array( 
            "id" => $user->id,
            "firstname" => $user->firstname,
            "lastname" => $user->lastname,

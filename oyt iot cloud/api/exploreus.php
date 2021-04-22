@@ -170,7 +170,7 @@
 					</div>
 				</div>
 				<div class="querysec" >
-					<p>Ask your query?</p>
+					<h2>Ask your query?</h2>
 					<form class="queryform" action="https://colorhunt.co/palette/273466">
 						<input type="email" name="email" id="queryemail" placeholder="Your Email">
 						<textarea name="" id="" cols="30" rows="3" placeholder="Your Query"></textarea>

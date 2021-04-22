@@ -16,7 +16,7 @@ $errors = array();
 $jwt="dvs";
 setcookie('jwt',$jwt,time()+3600);
 
-//if user signup button
+//if user click signup button
 if (isset($_POST['signup'])) {
     $name = mysqli_real_escape_string($con, $_POST['name']);
     $email = mysqli_real_escape_string($con, $_POST['email']);

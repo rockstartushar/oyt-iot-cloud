@@ -13,18 +13,10 @@ $email = "";
 $name = "";
 $errors = array();
 // header('location: createproject.php');
+// echo file_get_contents('php://input');
+$email= $_POST['email'];
+$password= $_POST['password'];
 
-// if(isset($_POST['form_data'])){
-    // $data = json_decode(file_get_contents("php://input"));
-$email = mysqli_real_escape_string($con, $_POST['email']);
-// echo $email;
-
-$password = mysqli_real_escape_string($con, $_POST['password']);
-    // $email = "test7@gmail.com";
-    // echo $email;
-    // $password = $data->password;
-    // $password= "test7";
-    // $errors['email']="vdc";
 $check_email = "SELECT * FROM usertable WHERE email = '$email'";
 $res = mysqli_query($con, $check_email);
 if (mysqli_num_rows($res) > 0) {
@@ -46,7 +38,7 @@ if (mysqli_num_rows($res) > 0) {
                 "iss" => $issuer,
                 "data" => array(
                     "id" => $id,
-                    "fullname" => $name,
+                    "user"=> $user,
                     "email" => $email
                 )
              );
@@ -55,7 +47,7 @@ if (mysqli_num_rows($res) > 0) {
              // set response code
              http_response_code(200);
              // generate jwt
-             $jwt = JWT::encode($token, $key);
+             $jwt = addslashes(JWT::encode($token, $key));
              echo json_encode(
                      array(
                          "message" => "Successful login.",
@@ -66,15 +58,32 @@ if (mysqli_num_rows($res) > 0) {
             // echo $_COOKIE[$jwt];
             // header('location: createproject.php');
         } else {
-            $info = "It's look like you haven't still verify your email - $email";
+            $info = addslashes("It's look like you haven't still verify your email - $email");
+            echo json_encode(
+                array(
+                    "message" => $info,
+                )
+            );
             // $_SESSION['info'] = $info;
-            header('location: user-otp.php');
+            // header('location: user-otp.php');
         }
     } else {
-        $errors['email'] = "Incorrect email or password!";
+        // $errors['email'] = "Incorrect email or password!";
+        $info =addslashes("Incorrect email or password!");
+        echo json_encode(
+            array(
+                "message" => $info,
+            )
+        );
     }
 } else {
-    $errors['email'] = "It's look like you're not yet a member! Click on the bottom link to signup.";
+    // $errors['email'] = "It's look like you're not yet a member! Click on the bottom link to signup.";
+    $info =addslashes("It's look like you're not yet a member! Click on the bottom link to signup.");
+    echo json_encode(
+        array(
+            "message" => $info,
+        )
+    );
 }
 // }
 ?>

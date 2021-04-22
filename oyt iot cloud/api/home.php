@@ -21,12 +21,12 @@
             <a class="nav-items" href="ourcloud.php">Our Cloud</a>
             <div class="nav-items drop">
                 <div class="explore">
-                    <a class="nav-items" href="exploreus.php">Explore Us <i style="color: #132c33;" class="fa fa-caret-down"></i></a>
-                       <div class="explore-list">
-                           <a class="explore-items" href="exploreus.php#ourclient">Our Client</a>
-                           <a class="explore-items" href="exploreus.php#projects">Projects</a>
-                           <a class="explore-items" href="exploreus.php#contactus">Contact Us</a>
-                       </div>
+                    <a class="nav-items" href="exploreus.php">Explore Us <i class="fa fa-caret-down"></i></a>
+                    <div class="explore-list">
+                        <a class="explore-items" href="exploreus.php#ourclient">Our Client</a>
+                        <a class="explore-items" href="exploreus.php#projects">Projects</a>
+                        <a class="explore-items" href="exploreus.php#contactus">Contact Us</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -45,11 +45,11 @@
         <a class="nav-items" href="ourcloud.php">Our Cloud</a>
         <div class="exploresm">
             <a class="nav-items" href="#">Explore Us <span style="color: white;">&#x25BC;</span></a>
-                <div class="explorebox">
-                    <a class="explore-items" href="exploreus.php#ourclient">Our Client</a>
-                    <a class="explore-items" href="exploreus.php#projects">Projects</a>
-                    <a class="explore-items" href="exploreus.php#contactus">Contact Us</a>
-                </div>
+            <div class="explorebox">
+                <a class="explore-items" href="exploreus.php#ourclient">Our Client</a>
+                <a class="explore-items" href="exploreus.php#projects">Projects</a>
+                <a class="explore-items" href="exploreus.php#contactus">Contact Us</a>
+            </div>
         </div>
         <div class="navbottom">
             <a class="nav-items login" href`="login-user.php">Login</a>
@@ -68,44 +68,131 @@
     <div class="iotintro">
         <div class="iotintromain">
             <div class="introtxt">
-                <p>Waiting for what?</p>
+                <h1>Waiting for what?</h1>
+                
                 <div class="des">
-
                 </div>
             </div>
         </div>
         <div class="introfooter"><a href="login-user.php">Lets Start</a></div>
     </div>
+    <div class="category">
+        <h1>Category, We serve</h1>    
+        <div class="categories">
+        <div class="categorieslist">
+        <button class="accordion"> + College</button>
+        <div class="panel">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </div>
+        <button class="accordion"> + College</button>
+        <div class="panel">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </div>
+        <button class="accordion"> + College</button>
+        <div class="panel">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </div>
+        </div>
+        <div class="categorieslist">
+        <button class="accordion"> + College</button>
+        <div class="panel">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </div>
+        <button class="accordion"> + College</button>
+        <div class="panel">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </div>
+        <button class="accordion"> + College</button>
+        <div class="panel">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </div>
+        </div>
+        </div>
+    </div>
     <!-- IoT Clouds -->
     <div class="iotcloud">
-        <p>IoT Cloud System</p>
-    </div>
+        <h1>IoT Cloud System</h1>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Harum odit esse voluptatum reiciendis? Id laboriosam repellat rerum repellendus aliquid ex non odio explicabo atque! Atque saepe reiciendis tempore cupiditate incidunt!</p>
+        <div><img src="../images/iotcloud.png" alt=""></div>
+</div>
     <!-- Our Cloud -->
     <div class="ourcloud">
-        <h2>At Our Cloud</h2>
+        <h1>At Our Cloud</h1>
+        <div class="cloudfeature">
+            <div class="fimg"><img src="../images/collect-1.svg" alt=""></div>
+            <div class="fdetails">
+                
+            <h2>Collect and control</h2>
+                <p>Connect and manage IoT devices via the cloud using graphical UI or REST API. Collect and visualize telemetry using a built-in dashboard or 3rd party tools like Grafana.</p>     
+            </div>
+        </div><div class="cloudfeature">
+            <div class="fimg"><img src="../images/collect-1.svg" alt=""></div>
+            <div class="fdetails">
+                
+            <h2>Collect and control</h2>
+                <p>Connect and manage IoT devices via the cloud using graphical UI or REST API. Collect and visualize telemetry using a built-in dashboard or 3rd party tools like Grafana.</p>     
+            </div>
+        </div><div class="cloudfeature">
+            <div class="fimg"><img src="../images/collect-1.svg" alt=""></div>
+            <div class="fdetails">
+                
+            <h2>Collect and control</h2>
+                <p>Connect and manage IoT devices via the cloud using graphical UI or REST API. Collect and visualize telemetry using a built-in dashboard or 3rd party tools like Grafana.</p>     
+            </div>
+        </div><div class="cloudfeature">
+            <div class="fimg"><img src="../images/collect-1.svg" alt=""></div>
+            <div class="fdetails">
+                
+            <h2>Collect and control</h2>
+                <p>Connect and manage IoT devices via the cloud using graphical UI or REST API. Collect and visualize telemetry using a built-in dashboard or 3rd party tools like Grafana.</p>     
+            </div>
+        </div><div class="cloudfeature">
+            <div class="fimg"><img src="../images/collect-1.svg" alt=""></div>
+            <div class="fdetails">
+                
+            <h2>Collect and control</h2>
+                <p>Connect and manage IoT devices via the cloud using graphical UI or REST API. Collect and visualize telemetry using a built-in dashboard or 3rd party tools like Grafana.</p>     
+            </div>
+        </div>
+        
+    
     </div>
-    <div class="category">
-		<p><b>Category, We serve</b></p>
-		<hr>
-        <table>
-            <tr>
-                <td> + College</td>
-                <td> + College</td>
-            </tr>
-            <tr>
-                <td> + College</td>
-                <td> + College</td>
-            </tr>
-            <tr>
-                <td> + College</td>
-                <td> + College</td>
-            </tr>
-            <tr>
-                <td> + College</td>
-                <td> + College</td>
-            </tr>
-        </table>
-    </div>
+    <div class="contact sec">
+			<hr>
+			<div class="contact-view">
+				<div class="address">
+					<div class="footerlogo">
+            			<img width="100%" src="./../images/logo.png" alt="OYT IOT Cloud">
+        			</div>
+					<address>83/57, Sector 8, Pratap Nagar, Jaipur, Rajasthan - 302033</address><br />
+					<div class="mapouter">
+						<div class="gmap_canvas">
+							<iframe class="gmap_iframe" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100&amp;height=100&amp;hl=en&amp;q=83/57, Sector 8, Pratap Nagar  Jaipur, Rajasthan - 302033&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe></div><style>.mapouter{position:relative;text-align:right;width: 50%;  margin: 0 auto 10% auto;}.gmap_canvas {overflow:hidden;background:none!important;height:200px;}.gmap_iframe {width: 20vw!important;}</style></div></td>
+				</div>
+				<div class="contactdetails">
+					<h2>Contact Us</h2>
+					<hr>
+					<a href="tel:+91-8285524418">&#9742; +91-8285524418</a><br>
+					<a href="mailto:contact@oytechnology.com">&#128231; contact@oytechnology.com</a><br>
+					<div class="icons">
+						<p><a href=""><i class="fa fa-facebook-f"></i></a></p>
+						<p><a href=""><i class="fa fa-twitter-square"></i></a></p>
+						<p><a href=""><i class="fa fa-youtube"></i></a></p>
+						<p><a href=""><i class="fa fa-linkedin"></i></a></p>
+						<p><a href=""><i class="fa fa-instagram"></i></a></p>
+					</div>
+				</div>
+				<div class="querysec" >
+					<h2>Ask your query?</h2>
+					<form class="queryform" action="https://colorhunt.co/palette/273466">
+						<input type="email" name="email" id="queryemail" placeholder="Your Email">
+						<textarea name="" id="" cols="30" rows="3" placeholder="Your Query"></textarea>
+						<button>Send</button>
+					</form>
+				</div>
+			</div>
+		</div>
+
     <div class="footer">
         oxymoratechnology.pvt.ltd.
     </div>
@@ -116,4 +203,5 @@
     <script src="./../assets/js/main.js"></script>
     <script src="./../assets/js/home.js"></script>
 </body>
+
 </html>
