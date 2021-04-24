@@ -1,9 +1,9 @@
 <?php require_once "controllerUserData.php"; ?>
 <?php 
-$email = $_SESSION['email'];
-if($email == false){
-  header('Location: login-user.php');
-}
+// $email = $_SESSION['email'];
+// if($email == false){
+//   header('Location: login-user.php');
+// }
 ?>
 <!DOCTYPE html>
 <html lang="en">

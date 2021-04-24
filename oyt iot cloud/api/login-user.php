@@ -16,8 +16,9 @@ require_once "controllerUserData.php";
 <body>
     <div class="container">
         <div class="left-text top-text">
-            <h2>OYT IoT Cloud<br> Login Page</h2>
+            <h2>OYT IoT Cloud<br> Login Page</h2>            
             <p>Login with your email and password to access our services.</p>
+           <div> <a href="home.php">Home</a></div>
         </div>
         <div class="main">
             <form id="login_form" class="login-form" action="" method="post">
@@ -28,14 +29,14 @@ require_once "controllerUserData.php";
                     <input class="email" id="email" type="email" name="email" placeholder="Email Address" required value="<?php echo $email ?>">
                 </div>
                 <div class="form-group">
-                    <input class="password" id="password" type="password" name="password" placeholder="Password" autocomplete="true" required>
+                    <input class="password" id="password" type="password" name="password" placeholder="Password" required>
                 </div>
-                <div class="forgot-link"><a href="forgot-password.php">Forgot password?</a></div>
+                <div class="forgot-link"><a href="forgot-password.php"><small>Forgot password?</small></a></div>
                 <div class="form-group">
                     <button class="submit-btn" type="submit">Login</button>
                     <!-- <input type="submit" value="submit"> -->
                 </div>
-                <div class="signup-link">Not yet a member? <a href="signup-user.php">Signup now</a></div>
+                <div class="signup-link">Not yet a member? <a href="signup-user.php"><small>SignUp now</small></a></div>
             </form>
         </div>
     </div>
@@ -83,19 +84,9 @@ require_once "controllerUserData.php";
             });
         }
             $(document).on('submit', '#login_form', function() {
-                var login_form = $('#login_form');
-                console.log(login_form);
                 var obj = [];
                 obj.email = $("#email").val();
                 obj.password = $("#password").val();
-                console.log(obj);
-                var form_data = [{
-                    "email": "test7@gmail.com",
-                    "password": "test7"
-                }]
-                form_data = JSON.stringify(form_data);
-
-                console.log(typeof form_data, form_data);
                 $.ajax({
                     url: "login.php",
                     type: "POST",
@@ -121,6 +112,12 @@ require_once "controllerUserData.php";
                             setCookie("error", result.message, 1);
                             console.log(getCookie("error"));
                             $('#response').html("Incorrect email or password!");
+                        } else if(result.message == "Looks like you have not still verify your email"){
+                            setCookie("email", result.email, 1);
+                            window.location="http://localhost/mfsc2/oyt%20iot%20cloud/api/user-otp.php";
+                        } else{
+                            console.log(result.message);
+
                         }
                     },
                     // error response is here

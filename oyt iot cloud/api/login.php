@@ -23,7 +23,6 @@ if (mysqli_num_rows($res) > 0) {
     $fetch = mysqli_fetch_assoc($res);
     $fetch_pass = $fetch['password'];
     if(password_verify($password, $fetch_pass)){
-        $_SESSION['email'] = $email;
         $status = $fetch['status'];
         $user = $fetch['name'];
         $email = $fetch['email'];
@@ -43,8 +42,8 @@ if (mysqli_num_rows($res) > 0) {
                 )
              );
         $errors['email'] = "Successfull login";
-          
-             // set response code
+        setcookie("userid", $id);
+        // set response code
              http_response_code(200);
              // generate jwt
              $jwt = addslashes(JWT::encode($token, $key));
@@ -58,10 +57,11 @@ if (mysqli_num_rows($res) > 0) {
             // echo $_COOKIE[$jwt];
             // header('location: createproject.php');
         } else {
-            $info = addslashes("It's look like you haven't still verify your email - $email");
+            $info = addslashes("Looks like you have not still verify your email");
             echo json_encode(
                 array(
                     "message" => $info,
+                    "email" => $email
                 )
             );
             // $_SESSION['info'] = $info;
@@ -78,7 +78,7 @@ if (mysqli_num_rows($res) > 0) {
     }
 } else {
     // $errors['email'] = "It's look like you're not yet a member! Click on the bottom link to signup.";
-    $info =addslashes("It's look like you're not yet a member! Click on the bottom link to signup.");
+    $info =addslashes("Looks like you are not yet a member! Click on the bottom link to signup.");
     echo json_encode(
         array(
             "message" => $info,

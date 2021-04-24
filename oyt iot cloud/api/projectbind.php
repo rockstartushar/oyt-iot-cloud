@@ -2,7 +2,7 @@
 header('Content-Type: application/json');
 
 require "connection.php";
-
+$userid=@$_COOKIE["userid"];
 $id = @$_COOKIE["register_id"];
 if (!$id) $id = 0;
 function mysqli_result($res, $row, $field=0) { 
@@ -20,7 +20,9 @@ $query = mysqli_query($con,"select * from userproject order by id");
 $data = array();
 while ($row = mysqli_fetch_assoc($query)) {
 	$id = $row["id"];
-	$data[] = $row;
+	if($row["userid"]==$userid){
+        $data[] = $row;
+    }   
 }
 
 setcookie("register_id", $id);

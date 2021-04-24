@@ -19,18 +19,42 @@ html, body {
     background: linear-gradient(to right, #000, transparent); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     padding: 5vw;
     height: 100%;
+    padding-bottom: 0;
+    padding-top: 0;
 
 }
+.bannertxt p{
+    padding-left:5vw ;
+    color: #d8e3e7;
+    margin-bottom: 2em;
+}
+.bannertxt a{
+    background-color: #51c4d3;
+margin-left:10em ;
+    color: #132c33;
+    padding:0.5em 1em;
+    text-decoration: none;
+    border-radius: 0.2em;
+}
 .bannertxt h1 {
-    margin-top: 2vw;
-    color: white;
+    /* margin-top: 2vw; */
+    color: #d8e3e7;
     font-size: 3em;
     text-shadow: 1px 1px 6px rgba(150, 150, 150, 1);
+    margin:0em 0.3em 0.3em;
+    padding-top: 3em;
+    
 }
 .bannertxt h1 span{
-    color: whitesmoke;
+    color: #d8e3e7;
     text-decoration-line: underline;
-    text-decoration-color: #fbeeac;
+    text-decoration-color: #d8e3e7;
+}
+.bannertxt div{
+    margin: 0.3em;
+}
+.bannertxt div span{
+    color: #51c4d3;
 }
 /* Intro part */
 .iotintro{
@@ -119,7 +143,7 @@ html, body {
 }
 .ourcloud .cloudfeature{
     display: flex;
-    width: 80%;
+    width: 70%;
     margin:5em  auto;
     justify-content: space-between;
 }
@@ -132,7 +156,12 @@ html, body {
 .fimg{
     text-align: center;
     margin: 0 auto;
+    width: 25%;
+    
 } 
+.fimg img{
+    width: 100%;
+}
 /* .fdetails:nth-child(n){
     width: 60%;
     /* text-align: right;
@@ -187,9 +216,6 @@ html, body {
     overflow: hidden;
   }
 @media only screen and (max-width: 600px) {
-    .banner {
-        margin-top: 70px;
-    }
     .graphicintro img{
         border: 1px solid black;
         border-radius: 10px;

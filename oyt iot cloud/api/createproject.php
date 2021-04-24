@@ -99,39 +99,58 @@
             <a class="create">Create/Add Project</a>
         </div>
 
-        <div class="updateaccountmodal">
-            <a class="updateaccountmodalclose">&times;</a>
+        <div class="updateaccountmodal modal">
+            <a class="updateaccountmodalclose modalclose">&times;</a>
             <p>Update Account</p>
             <hr>
             <!-- <div class="usericondiv"><img src="./../images/icon/user.png" alt=""></div> -->
-            <form class="updateaccountmodalform">
+            <form class="updateaccountmodalform modalform" id="update_account_form" action="" method="post">
+            <small id="updateprojectmodalerror modalerror"></small>
                 <div>
-                    <input type="text" name="" id="name" placeholder="Your name">
+                    <input type="text" name="" id="name" placeholder="Your name" required>
                 </div>
                 <div>
-                    <input type="email" name="" id="email" placeholder="Your email">
+                    <input type="email" name="" id="email" placeholder="Your email" required>
                 </div>
                 <div>
-                    <input type="password" name="" id="password" placeholder="Your password">  
+                    <input type="password" name="" id="password" placeholder="Your password" required>  
                 </div>
                 <div>
-                    <button class="submit-btn" id="">Update</button>
+                    <button class="submit-btn" id="updateprojectbtn" type="submit">Update</button>
                 </div>
             </form>
         </div>
-        <div class="addprojectmodal">
-            <a class="addprojectmodalclose">&times;</a>
+        <div class="addprojectmodal modal">
+            <a class="addprojectmodalclose modalclose">&times;</a>
             <p>Create/Add Project</p>
             <hr>
-            <form class="addprojectmodalform">
+            <form class="addprojectmodalform modalform" action="">
+                <small id="addprojectmodalerror modalerror"></small>
                 <div>
-                    <input type="text" name="project_name" id="project_name" placeholder="Your project name">
+                    <input type="text" name="project_name" id="project_name" placeholder="Your project name" required>
                 </div>
                 <div>
-                    <textarea name="project_des" id="project_des" cols="30" rows="10" placeholder="Write your project brief description"></textarea>
+                    <textarea name="project_des" id="project_des" cols="30" rows="10" placeholder="Write your project brief description" required></textarea>
                 </div>
                 <div>
                     <button class="submit-btn" id="createprojectbtn">Customize your project section</button>
+                </div>
+            </form>
+        </div>
+        <div class="editprojectmodal modal">
+            <a class="editprojectmodalclose modalclose">&times;</a>
+            <p>Edit Project</p>
+            <hr>
+            <form class="editprojectmodalform modalform" action="" method="post">
+                <small id="editprojectmodalerror modalerror"></small>
+                <div>
+                    <input type="text" name="new_project_name" id="new_project_name" placeholder="Your project new name" required>
+                </div>
+                <div>
+                    <textarea name="new_project_des" id="new_project_des" cols="30" rows="10" placeholder="Write your project new brief description" required></textarea>
+                </div>
+                <div>
+                    <button class="submit-btn" id="editprojectbtn" type="submit">Cofirm Edit</button>
                 </div>
             </form>
         </div>

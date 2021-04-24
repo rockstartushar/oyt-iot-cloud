@@ -5,7 +5,6 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="./../assets/css/main.css" />
-		<link rel="stylesheet" href="./../assets/css/home.css" />
 		<link rel="stylesheet" href="./../assets/css/exploreus.css" />
 		<link rel="stylesheet" href="./../assets/css/font-awesome.min.css">
 		<link rel="preconnect" href="https://fonts.gstatic.com" />
@@ -22,12 +21,12 @@
             <a class="nav-items" href="ourcloud.php">Our Cloud</a>
             <div class="nav-items drop">
                 <div class="explore">
-                    <a class="nav-items" href="exploreus.php">Explore Us <span style="color: white;">&#x25BC;</span></a>
-                       <div class="explore-list">
-                           <a class="explore-items" href="exploreus.php#ourclient">Our Client</a>
-                           <a class="explore-items" href="exploreus.php#projects">Projects</a>
-                           <a class="explore-items" href="exploreus.php#contactus">Contact Us</a>
-                       </div>
+                    <a class="nav-items" href="exploreus.php">Explore Us <i class="fa fa-caret-down"></i></a>
+                    <div class="explore-list">
+                        <a class="explore-items" href="exploreus.php#ourclient">Our Client</a>
+                        <a class="explore-items" href="exploreus.php#projects">Projects</a>
+                        <a class="explore-items" href="exploreus.php#contactus">Contact Us</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -46,18 +45,18 @@
         <a class="nav-items" href="ourcloud.php">Our Cloud</a>
         <div class="exploresm">
             <a class="nav-items" href="#">Explore Us <span style="color: white;">&#x25BC;</span></a>
-                <div class="explorebox">
-                    <a class="explore-items" href="exploreus.php#ourclient">Our Client</a>
-                    <a class="explore-items" href="exploreus.php#projects">Projects</a>
-                    <a class="explore-items" href="exploreus.php#contactus">Contact Us</a>
-                </div>
+            <div class="explorebox">
+                <a class="explore-items" href="exploreus.php#ourclient">Our Client</a>
+                <a class="explore-items" href="exploreus.php#projects">Projects</a>
+                <a class="explore-items" href="exploreus.php#contactus">Contact Us</a>
+            </div>
         </div>
         <div class="navbottom">
-            <a class="nav-items login" href="login-user.php">Login</a>
-            <a class="nav-items" href="signup-user.php">Sign Up</a>
+            <a class="nav-items login" href`="login-user.php">Login</a>
+            <a class="nav-items signup" href="signup-user.php">Sign Up</a>
         </div>
     </div>
-	<br>
+    
 	<!-- Explore Us -->
     <div class="banner">
         <div class="bannertxt">
@@ -66,13 +65,13 @@
     </div>
     	<!-- Projects -->
 		<div class="sec">
-			<h2>Projects</h2>
-			<hr>
+			<h1>Projects</h1>
+			
 			<div class="project">
 				<main>
-    			  <button class="crouselbtn" id="prev">&lt;</button>
+    			  <button class="crouselbtn" id="prev"><i class="fa fa-chevron-left"></i></button>
     			  <div class="card-container"></div>
-    			  <button class="crouselbtn" id="next">&gt;</button>
+    			  <button class="crouselbtn" id="next"><i class="fa fa-chevron-right"></i></button>
     			</main>
 			</div>
 		</div>
@@ -123,8 +122,8 @@
 		</div> -->
 		<!-- Clients -->
 		<div class="sec">
-			<h2>Our Clients</h2>
-			<hr>
+			<h1>Our Clients</h1>
+			
 			<div class="client">
 			<img src="./../images/icon/clientlogo.png" alt="">
 			<img src="./../images/icon/clientlogo.png" alt="">
@@ -145,6 +144,8 @@
 		</div>
 		</div>
 		<div class="contact sec">
+			<hr>
+			<div class="contact sec">
 			<hr>
 			<div class="contact-view">
 				<div class="address">
@@ -179,6 +180,7 @@
 				</div>
 			</div>
 		</div>
+
 		<div class="footer">
 			oxymoratechnology.pvt.ltd.
 		</div>

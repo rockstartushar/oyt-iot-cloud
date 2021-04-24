@@ -3,76 +3,110 @@
     width: 100%;
     height: 100vh;
     color: rgb(197, 197, 197);
-    font-size: 3vw; 
 }
 .left-text{
     width: 30%;
-    background-color: black;
+    background-color: #132c33;
     /* background-image: url('../../images/banner.jpg'); */
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
+    padding: 7em 0.5em;
 }
 .left-text h2{
-    margin-top: 3vw;
-    margin-left: 2.2vw;
-    color: white;
-    font-size: 5vw;
-    text-shadow: 7px 6px 3px rgb(98 110 125 / 93%);
+    margin: 1em 0.5em;
+
+    color: #d8e3e7;
+    font-size: 3em;
+    /* text-shadow: 7px 6px 3px rgb(98 110 125 / 93%); */
 }
 .left-text p{
     margin-top: 20px;
     margin-left: 2.5vw;
-    color: white;
-    font-size: 3vw;
+    color: #d8e3e7;
+    font-size: 1.5em;
     /* text-shadow: 7px 6px 3px rgb(98 110 125 / 93%); */
+}
+.left-text div{
+    margin: 2.5em;
+    text-align: center;
+}
+.left-text a{
+    background-color: #d8e3e7;
+    color: #132c33;
+    padding: .8em;
+    border-radius: .2em;
+    text-decoration: none;
 }
 .main{
     width: 70%;
-    background-image: linear-gradient(purple,blue);
+    background: #AA076B;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #132c33, #d8e3e7);  /* Chrome 10-25, Safari 5.1-6 */  
+    background: linear-gradient(to right, #132c33,#d8e3e7,#d8e3e7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
 }
 .login-form, .signup-form, .forgot-code-form, .otp-form, .reset-form{
     margin: auto;
     width: 40%;
     margin-top: 15%;
     border-radius: 20px;
-    background-color: blueviolet;
+    background-color: #132c33;
     padding: 20px;
-    opacity :.7;
-    font-size: 2vw;
+    /* font-size: 1.5em; */
 }
 .login-form:hover, .signup-form:hover,.forgot-code-form:hover, .otp-form:hover, .reset-form:hover {
-    opacity: 1;
+    box-shadow: 0.02em 0.05em 0.8em rgb(0 0 0 / 48%);
+
 }
 .login-form input, .signup-form input, .forgot-code-form input, .otp-form input, .reset-form input{
     color: black;
+    margin: 0.5em 0;
+    padding: 0.5em ;
+    width: 95%;
+    border-radius: 5px;
 }
-.login-form *, .signup-form *, .forgot-code-form *, .otp-form *, .reset-form *{
-    padding: 5px;
+.login-form .form-group, .signup-form .form-group, .forgot-code-form .form-group, .otp-form .form-group, .reset-form .form-group{
+    /* margin: 0.5em; */
+    
     width: 100%;
     outline: none;
     border-radius: 5px;
     border: none;
-    font-size: 1vw;
     color: white;
 }
+.login-form h2{
+    margin: 0.5em 0;
+}
+
 .login-form *:focus, .signup-form *:focus, .forgot-code-form *:focus, .otp-form *:focus, .reset-form *:focus{
     border: 2px solid white;
     color: black;
 }
+.login-form small{
+    color: #d8e3e7;
+    border-bottom: 1px solid #d8e3e7;
+}
 .forgot-link{
     text-align: right;
 }
+.form-group{
+    text-align: center;
+}
 .submit-btn, .forgot-submit{
-    background-color: blue;
+    background-color: #132c33;
     outline: none;
-    border: none;       
-    color: white;
+    border: 2px solid #d8e3e7; 
+    border-radius: 0.2em;
+    padding: 0.5em 1em;
+    font-size: 0.8em;      
+    color: #d8e3e7;
     cursor: pointer;
-    width: auto;
+    /* margin: 0 auto; */
+    margin:1em 0;
 }
 .submit-btn:hover, .forgot-submit:hover {
-    opacity: .5;
+    background-color: #d8e3e7;
+    color: #132c33;
 }
 @media screen and (max-width: 600px) {
     .container{
@@ -91,8 +125,5 @@
     .login-form, .signup-form, .forgot-code-form, .otp-form, .reset-form{
         margin-top: 10%;
         width: 60%;
-    }
-    .login-form *, .signup-form *, .forgot-code-form *, .otp-form *, .reset-form *{
-        font-size: 2.5vw;
     }
 }

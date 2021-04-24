@@ -16,7 +16,7 @@
     font-size: 2vw;
     outline: none;
     border: none;       
-    color: white;
+    color: white; 
     cursor: pointer;
     padding: 5px;
 }
@@ -41,7 +41,7 @@
 .create:hover{
     opacity: .5;
 }
-.addprojectmodal, .updateaccountmodal {
+.modal {
     display: none;
     position: fixed;
     left: 25%;
@@ -51,24 +51,24 @@
     border: 1px solid white;
     border-radius: 10px;
 }
-.addprojectmodal p, .updateaccountmodal p{
+.modal p{
     font-size: 2vw;
     margin: 0 auto;
     width: 90%;
     padding-top: 2vw;
 }
-.addprojectmodalclose, .updateaccountmodalclose{
+.modalclose{
     float: right;
     color: white;
     font-size: 3vw;
     margin: 8px;
     cursor: pointer;
 }
-.addprojectmodalclose:hover, .updateaccountmodalclose{
+.modalclose:hover {
     border: .5px solid white;
     border-radius: 10px;
 }
-.addprojectmodalform, .updateaccountmodalform{
+.modalform{
     display: flex;
     flex-direction: column;
     margin: auto;
@@ -77,10 +77,10 @@
     /* opacity: .7; */
     font-size: 2vw;
 }
-.addprojectmodalform input, .updateaccountmodalform input{
+.modalform input, .modalform input{
     color: black;
 }
-.addprojectmodalform *, .updateaccountmodalform *{
+.modalform *, .modalform *{
     padding: 10px;
     width: 100%;
     outline: none;
@@ -89,7 +89,7 @@
     font-size: 1vw;
     color: white;
 }
-.addprojectmodalform *:focus, .updateaccountmodalform *:focus{
+.modalform *:focus, .modalform *:focus{
     border: 2px solid white;
     color: black;
 }

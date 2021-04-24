@@ -56,14 +56,55 @@
             <a class="nav-items signup" href="signup-user.php">Sign Up</a>
         </div>
     </div>
-    <br>
+    
     <!-- Steps to get started -->
     <div class="banner">
         <div class="bannertxt">
-            <h1>Welcome <br> to our <br> IoT Cloud <span> Services</span></h1>
+            <h1>Welcome  to<div><span> OYT</span>  IoT Cloud</div></h1>
+            <p>The perfect solution for your IOT project management</p>
+            <a href="signup-user.php"><strong>Get Started</strong></a>
         </div>
     </div>
-
+<!-- Our Cloud -->
+<div class="ourcloud">
+        <h1>At Our Cloud</h1>
+        <div class="cloudfeature">
+            <div class="fimg"><img src="../images/collect-1.svg.png" alt=""></div>
+            <div class="fdetails">
+                
+            <h2>Collect and control</h2>
+                <p>Connect and manage IoT devices via the cloud using graphical UI or REST API. Collect and visualize telemetry using a built-in dashboard or 3rd party tools like Grafana.</p>     
+            </div>
+        </div><div class="cloudfeature">
+            <div class="fimg"><img src="../images/collect-2.png" alt=""></div>
+            <div class="fdetails">
+                
+            <h2>Collect and control</h2>
+                <p>Connect and manage IoT devices via the cloud using graphical UI or REST API. Collect and visualize telemetry using a built-in dashboard or 3rd party tools like Grafana.</p>     
+            </div>
+        </div><div class="cloudfeature">
+            <div class="fimg"><img src="../images/collect-1.svg.png" alt=""></div>
+            <div class="fdetails">
+                
+            <h2>Collect and control</h2>
+                <p>Connect and manage IoT devices via the cloud using graphical UI or REST API. Collect and visualize telemetry using a built-in dashboard or 3rd party tools like Grafana.</p>     
+            </div>
+        </div><div class="cloudfeature">
+            <div class="fimg"><img src="../images/collect-2.png" alt=""></div>
+            <div class="fdetails">
+                
+            <h2>Collect and control</h2>
+                <p>Connect and manage IoT devices via the cloud using graphical UI or REST API. Collect and visualize telemetry using a built-in dashboard or 3rd party tools like Grafana.</p>     
+            </div>
+        </div><div class="cloudfeature">
+            <div class="fimg"><img src="../images/collect-1.svg.png" alt=""></div>
+            <div class="fdetails">
+                
+            <h2>Collect and control</h2>
+                <p>Connect and manage IoT devices via the cloud using graphical UI or REST API. Collect and visualize telemetry using a built-in dashboard or 3rd party tools like Grafana.</p>     
+            </div>
+        </div>
+</div>
     <!-- Steps to get started -->
     <div class="iotintro">
         <div class="iotintromain">
@@ -115,48 +156,9 @@
         <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Harum odit esse voluptatum reiciendis? Id laboriosam repellat rerum repellendus aliquid ex non odio explicabo atque! Atque saepe reiciendis tempore cupiditate incidunt!</p>
         <div><img src="../images/iotcloud.png" alt=""></div>
 </div>
-    <!-- Our Cloud -->
-    <div class="ourcloud">
-        <h1>At Our Cloud</h1>
-        <div class="cloudfeature">
-            <div class="fimg"><img src="../images/collect-1.svg" alt=""></div>
-            <div class="fdetails">
-                
-            <h2>Collect and control</h2>
-                <p>Connect and manage IoT devices via the cloud using graphical UI or REST API. Collect and visualize telemetry using a built-in dashboard or 3rd party tools like Grafana.</p>     
-            </div>
-        </div><div class="cloudfeature">
-            <div class="fimg"><img src="../images/collect-1.svg" alt=""></div>
-            <div class="fdetails">
-                
-            <h2>Collect and control</h2>
-                <p>Connect and manage IoT devices via the cloud using graphical UI or REST API. Collect and visualize telemetry using a built-in dashboard or 3rd party tools like Grafana.</p>     
-            </div>
-        </div><div class="cloudfeature">
-            <div class="fimg"><img src="../images/collect-1.svg" alt=""></div>
-            <div class="fdetails">
-                
-            <h2>Collect and control</h2>
-                <p>Connect and manage IoT devices via the cloud using graphical UI or REST API. Collect and visualize telemetry using a built-in dashboard or 3rd party tools like Grafana.</p>     
-            </div>
-        </div><div class="cloudfeature">
-            <div class="fimg"><img src="../images/collect-1.svg" alt=""></div>
-            <div class="fdetails">
-                
-            <h2>Collect and control</h2>
-                <p>Connect and manage IoT devices via the cloud using graphical UI or REST API. Collect and visualize telemetry using a built-in dashboard or 3rd party tools like Grafana.</p>     
-            </div>
-        </div><div class="cloudfeature">
-            <div class="fimg"><img src="../images/collect-1.svg" alt=""></div>
-            <div class="fdetails">
-                
-            <h2>Collect and control</h2>
-                <p>Connect and manage IoT devices via the cloud using graphical UI or REST API. Collect and visualize telemetry using a built-in dashboard or 3rd party tools like Grafana.</p>     
-            </div>
-        </div>
         
     
-    </div>
+   
     <div class="contact sec">
 			<hr>
 			<div class="contact-view">
