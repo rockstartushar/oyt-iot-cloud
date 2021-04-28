@@ -9,46 +9,50 @@
 	</head>
 	<body>
 		<!-- Navbar -->
-		<div class="navbar">
-			<div class="logo">
-				<img width="100%" src="images/banner.jpg" alt="OYT IOT Cloud">
-			</div>
-			<div class="nav-list">
-				<a class="nav-items" href="#">About OYT</a>
-    			<a class="nav-items" href="#">Our Cloud</a>
-				<div class="nav-items drop">
-					<a class="nav-items explore" onclick="showexplore()" href="#">Explore Us <img style="color: white; background-color: white;" width="10px" src="images/icon/drop.png" alt=""></a>
-					<div class="explore-list">
-						<a class="nav-items explore-items" href="#">Our Client</a>
-						<a class="nav-items explore-items" href="#">Projects</a>
-						<a class="nav-items explore-items" href="#">Contact Us</a>
-					</div>
-				</div>
-			</div>
-			<div class="right-nav">
-                <a class="nav-items" href="logout-user.php">Logout</a>
-			</div>
-			<div onclick="openNav()" class="breadcrumb">
-				<a class="dash"></a>
-				<a class="dash"></a>
-				<a class="dash"></a>
-			</div>
-		</div>
-        <div class="navbox">
-			<a class="nav-items" href="#">About OYT</a>
-			<a class="nav-items" href="#">Our Cloud</a>
-			<a class="nav-items explore" onclick="showexplorebox()" href="#">Explore Us <img style="color: white; background-color: white;" width="10px" src="images/icon/drop.png" alt=""> </a>
-			<div class="explorebox">
-				<a class="nav-items explore-items" href="#">Our Client</a>
-				<a class="nav-items explore-items" href="#">Projects</a>
-				<a class="nav-items explore-items" href="#">Contact Us</a>
-			</div>
-			<div class="navbottom">
-				<a class="nav-items" href="">Login |</a>
-				<a class="nav-items" href="">Sign Up</a>
-			</div>
-  		</div>
-          <br><br><br><br>
+        <div class="navbar">
+        <div class="logo">
+            <img width="100%" src="./../images/logo.png" alt="OYT IOT Cloud">
+        </div>
+        <div class="nav-list">
+            <a class="nav-items" href="https://www.oytechnology.com/aboutUs">About OYT</a>
+            <a class="nav-items" href="ourcloud.php">Our Cloud</a>
+            <div class="nav-items drop">
+                <div class="explore">
+                    <a class="nav-items" href="exploreus.php">Explore Us <i class="fa fa-caret-down"></i></a>
+                    <div class="explore-list">
+                        <a class="explore-items" href="exploreus.php#ourclient">Our Client</a>
+                        <a class="explore-items" href="exploreus.php#projects">Projects</a>
+                        <a class="explore-items" href="exploreus.php#contactus">Contact Us</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="right-nav">
+            <a class="nav-items login" href="logout-user.php" id="logout">Logout</a>
+            <a class="nav-items updatebtn">Update Account</a>
+        </div>
+        <div onclick="openNav()" class="breadcrumb">
+            <a class="dash"></a>
+            <a class="dash"></a>
+            <a class="dash"></a>
+        </div>
+    </div>
+    <div class="navbox">
+        <a class="nav-items" href="https://www.oytechnology.com/aboutUs">About OYT</a>
+        <a class="nav-items" href="ourcloud.php">Our Cloud</a>
+        <div class="exploresm">
+            <a class="nav-items" href="#">Explore Us <span style="color: white;">&#x25BC;</span></a>
+            <div class="explorebox">
+                <a class="explore-items" href="exploreus.php#ourclient">Our Client</a>
+                <a class="explore-items" href="exploreus.php#projects">Projects</a>
+                <a class="explore-items" href="exploreus.php#contactus">Contact Us</a>
+            </div>
+        </div>
+        <div class="navbottom">
+            <a class="nav-items login" href="logout-user.php">Logout</a>
+            <a class="nav-items updatebtn">Update Account</a>
+        </div>
+    </div>
           <h1>Customize from scratch!..</h1>
           <p><strong>Note:- In the project/product section, you can Add__</strong></p>
           <hr>
@@ -63,11 +67,45 @@
                   <div class="devicetable"></div>
                   <h2>Add Devices</h2>
                   <b><p>Fill the form!</p></b>
-                  <form action="dashboard.php" class="adddevicesform">
-                      <input type="text" name="devicename" id="devicename">
-                      <input type="text" name="unit" id="unit">
-                      <input type="submit" value="Add">
-                  </form>
+                  <form action="" class="adddevicesform">
+                    <div class="formgroup">    
+                      <input type="text" id="device_name" name="device_name" placeholder="device_name" required>
+                    </div>
+                    <div class="formgroup">
+                      <!-- <input type="text" name="device_type" id="device_type" placeholder="device_type" required> -->
+                      <select name="device_type" id="device_type">
+                      <option value="Location">Location</option>
+                      <option value="Temperature">Temperature</option>
+                      <!-- <option value="varchar(255)">varchar(255)</option> -->
+                      </select>
+                    </div>
+                    <div class="formgroup">
+                      <input type="text" name="device_token" id="device_token" placeholder="device_token" required>
+                    </div>
+                    <div class="formgroup">
+                      <input type="text" name="field_name" id="field_name" placeholder="field_name" required>
+                    </div>
+                    <div class="formgroup">
+                      <!-- <input type="text" name="field_type" id="field_type" placeholder="field_type" required> -->
+                      <select name="field_type" id="field_type">
+                      <option value="int(11)">int(11)</option>
+                      <option value="varchar(255)">varchar(255)</option>
+                      <option value="varchar(255)">varchar(255)</option>
+                      </select>
+                    </div>
+                    <div class="formgroup">
+                        <input type="button" id="submitdevice" value="Add">
+                    </div>
+                   </form>
+                   <table id="divtable">
+                        <tr>
+                            <th>S. No.</th>
+                            <th>Project Name</th>
+                            <th>Project Description</th>
+                            <th>Created At</th>
+                        </tr>
+                    </table>
+        
                   <div class="faqs">
                     <p><b>Refer FAQs for devices section</b></p>
                     <p>Ques. </p>
@@ -89,27 +127,27 @@
                   <h2>Add Service Blocks</h2>
                   <div class="services">
                       <div class="servicecard">
-                          <img src="images/pic03.jpg" alt="">
+                          <img src="../images/collect-2.png" alt="">
                           <h3>Block Name</h3>
                           <p>Options</p>
                       </div>
                       <div class="servicecard">
-                          <img src="images/pic03.jpg" alt="">
+                          <img src="../images/collect-2.png" alt="">
                           <h3>Block Name</h3>
                           <p>Options</p>
                       </div>
                       <div class="servicecard">
-                          <img src="images/pic03.jpg" alt="">
+                          <img src="../images/collect-2.png" alt="">
                           <h3>Block Name</h3>
                           <p>Options</p>
                       </div>
                       <div class="servicecard">
-                          <img src="images/pic03.jpg" alt="">
+                          <img src="../images/collect-2.png" alt="">
                           <h3>Block Name</h3>
                           <p>Options</p>
                       </div>
                       <div class="servicecard">
-                          <img src="images/pic03.jpg" alt="">
+                          <img src="../images/collect-2.png" alt="">
                           <h3>Block Name</h3>
                           <p>Options</p>
                       </div>
@@ -133,6 +171,7 @@
                   <span id="dashboard" onclick="closeSec(id)" class="close">&times;</span>
                   <span id="dashboard" onclick="closeSec(id)" class="size">&#x26F6;</span>
                   <h2>Dashboard</h2>
+                  <div class="btnctrl"></div>
                   <div class="dashboardarea">
 
                   </div>

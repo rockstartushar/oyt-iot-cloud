@@ -60,3 +60,34 @@ function getCookie(cname) {
     }
     return "";
 }
+// validate token function
+function validatetologin() {
+    var jwt = getCookie("jwt1");
+    $.post(
+      "validate_token.php",
+      JSON.stringify({
+        jwt: jwt,
+      })
+    )
+      .done(function (result) {
+        // console.log(result,"jwt");
+        if (typeof result == "string") {
+          result = JSON.parse(result);
+        }
+        if (result.message == "Access granted.") {
+          console.log(result.data.user);
+          console.log(result);
+          $("#username").html(result.data.user);
+          $("#name").val(result.data.user);
+          $("#email").val(result.data.email);
+          $("title").html(`${result.data.user} | Projects`);
+          id = result.data.id;
+        }
+      })
+      .fail(function (result) {
+        // $("#response").html(response.message);
+        window.location =
+          "http://localhost/mfsc2/oyt%20iot%20cloud/api/login-user.php";
+      });
+  }
+  

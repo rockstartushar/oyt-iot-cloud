@@ -1,34 +1,5 @@
 // Validation
 var id = "";
-function validatetologin() {
-  var jwt = getCookie("jwt1");
-  $.post(
-    "validate_token.php",
-    JSON.stringify({
-      jwt: jwt,
-    })
-  )
-    .done(function (result) {
-      // console.log(result,"jwt");
-      if (typeof result == "string") {
-        result = JSON.parse(result);
-      }
-      if (result.message == "Access granted.") {
-        console.log(result.data.user);
-        console.log(result);
-        $("#username").html(result.data.user);
-        $("#name").val(result.data.user);
-        $("#email").val(result.data.email);
-        $("title").html(`${result.data.user} | Projects`);
-        id = result.data.id;
-      }
-    })
-    .fail(function (result) {
-      // $("#response").html(response.message);
-      window.location =
-        "http://localhost/mfsc2/oyt%20iot%20cloud/api/login-user.php";
-    });
-}
 console.log(getCookie("jwt1"));
 validatetologin();
 // On logout click
@@ -103,6 +74,7 @@ $(document).on("submit", "#update_account_form", function () {
 var addprojectmodal = document.querySelector(".addprojectmodal");
 var addprojectmodalclose = document.querySelector(".addprojectmodalclose");
 var createbtn = document.querySelector(".create");
+var globlelastId;
 createbtn.onclick = function () {
   validatetologin();
   addprojectmodal.style.display = "block";
@@ -127,9 +99,11 @@ Comet = {
           evt = JSON.parse(evt);
           console.log(evt);
         }
-        alert(typeof evt);
+        // console.log(evt[0].id);
+        
         let projects = "";
-        evt.forEach(
+        if(globlelastId!=evt[0].id){
+          evt.forEach(
           ({ id, project_name, project_des, created_at }) =>
             (projects = `<tr>
 											<td pj-id="${id}">${id}</td></td>
@@ -141,7 +115,8 @@ Comet = {
                       <td pj-id="${id}"><button onclick="gotodashboard(${id})">Enter</button></td>
 										</tr>`)
         );
-
+      }
+        globlelastId=evt[0].id;
         // $("#destiny-area").prepend(evt + "<br />");
         document.getElementById("divtable").innerHTML += projects;
         document.addEventListener("DOMContentLoaded", Comet.success);
@@ -172,6 +147,8 @@ $(document).ready(function () {
         console.log(evt);
       }
       // alert(typeof evt);
+      var len=evt.length;
+      globlelastId=evt[len-1].id;
       let projects = "";
       evt.forEach(
         ({ id, project_name, project_des, created_at }) =>
