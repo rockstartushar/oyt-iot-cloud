@@ -7,6 +7,8 @@
 		<link rel="stylesheet" href="./../assets/css/main.css" />
         <link rel="stylesheet" href="./../assets/css/dashboard.css" />
 	</head>
+    <style>
+    #map { height: 500px; width: 400px; }</style>
 	<body>
 		<!-- Navbar -->
         <div class="navbar">
@@ -286,5 +288,12 @@
 			<script src="./../assets/js/util.js"></script>
 			<script src="./../assets/js/main.js"></script>
             <script src="./../assets/js/device.js"></script>
+            <script src="./../assets/js/chart.min.js"></script>
+            <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+            <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAejrzy9JZIGDS4YhpU6nJCz1gZvld-W3c&callback=initMap&libraries=&v=weekly"
+      async
+    ></script>
 	</body>
 </html>

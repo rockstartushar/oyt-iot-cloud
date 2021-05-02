@@ -1,11 +1,12 @@
-function showServices(deviceid){
-	alert(deviceid);
+validatetologin();
+function showServices(device_token, field,device_type){
 	$.ajax({
-		url: "addChartsdata.php",
+		url: "charts1stbind.php",
 		method: "POST",
-		data: {deviceid: getCookie("dashboardprojectid")},
+		data: {device_token: device_token},
 		success: function (data, request) {
-			var tm = [];
+			if(device_type=="temperature") {
+				var tm = [];
 			var dataval = [];
 			if(typeof(data)=='string'){
 			  data=JSON.parse(data);
@@ -19,7 +20,7 @@ function showServices(deviceid){
             labels: tm,
             datasets : [
               {
-                label: 'Device Data',
+                label: field,
                 color: 'rgba(36,173,227,.6)',
                 fontColor: 'white',
                 backgroundColor: 'rgba(36,173,227,.6)',
@@ -30,7 +31,9 @@ function showServices(deviceid){
               }
             ]
           };
-          var ctx = $("#mycanvas");    
+		//   console.log(`.${device_token}`);
+          var ctx = $("canvas");
+		// var ctx = $(`.${device_token}`);
           showline=() => {
             ctx.show();
             var lineGraph = new Chart(ctx, {
@@ -40,8 +43,26 @@ function showServices(deviceid){
             console.log(lineGraph);
           }
          showline();
-            },
-			async: false,
+		} else{
+			alert("efg");
+			// Initialize and add the map
+function initMap() {
+	// The location of Uluru
+	const uluru = { lat: -25.344, lng: 131.036 };
+	// The map, centered at Uluru
+	const map = new google.maps.Map(document.getElementById("map"), {
+	  zoom: 4,
+	  center: uluru,
+	});
+	// The marker, positioned at Uluru
+	const marker = new google.maps.Marker({
+	  position: uluru,
+	  map: map,
+	});
+  }
+        }
+	},
+	async: false,
 			error: function(data) {
 			    alert("Error! So, Can see your data here:- ", data);
 			}
@@ -51,11 +72,11 @@ function showServices(deviceid){
 function createservices(dd){
 	var devicelist=document.querySelectorAll(".device_type");
 	var tr=document.querySelectorAll(".devicerow");
+	document.querySelector(".dashboardarea").innerHTML+=`<div class="servicesblock"><canvas id="mycanvas"></canvas>
+	<div id="map"></div></div>`;
 	console.log(tr);
-	for(var i=0;i<tr.length;i++){
-		document.querySelector(".btnctrl").innerHTML+=`<button onclick="showServices(${dd[i].id})">${dd[i].device_name}</button>`;
-		document.querySelector(".dashboardarea").innerHTML+=`<div id="${dd[i].id}" class="servicesblock"><canvas class="${dd[i].id}"></canvas>
-		<div class="${dd[i].id}">Map</div></div>`;
+	for(var i=0;i<trx.length;i++){
+		document.querySelector(".btnctrl").innerHTML+=`<button onclick="showServices(\'${dd[i].device_token}\', \'${dd[i].field_name}\')">${dd[i].device_name}</button>`;
 	}
 	console.log(devicelist);
 }
@@ -124,7 +145,7 @@ Comet = {
 						// $("#destiny-area").prepend(evt + "<br />");
 						document.getElementById("divtable").innerHTML += tabledata;
 						document.addEventListener("DOMContentLoaded", Comet.success);
-						createservices();
+						createservices(evt);
 					},
 					complete: function() {
 						Comet.connect();

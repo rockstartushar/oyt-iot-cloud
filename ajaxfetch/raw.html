@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="apple-touch-icon" sizes="76x76" href="http://tiptopdrive.com:8088/assets/img/apple-icon.png">
+  <link rel="icon" type="image/png" href="http://tiptopdrive.com:8088/assets/img/favicon.png">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <title>
+    IoT Dashboard
+  </title>
+  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+
+  <!--     Fonts and icons     -->
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+  <!-- CSS Files -->
+  <link href="http://tiptopdrive.com:8088/assets/css/material-dashboard.min.css?v=2.1.1" rel="stylesheet" />
+  <link rel="stylesheet" href="http://tiptopdrive.com:8088/anims//css/normalize.css">
+  <link rel="stylesheet" href="http://tiptopdrive.com:8088/anims/css/range-slider.css">
+  <link rel="stylesheet" href="http://tiptopdrive.com:8088/anims/css/main.css">
+</head>
+<body class="">
+    <div class="wrapper ">
+        <div class="sidebar" data-color="purple" data-background-color="white" data-image="http://tiptopdrive.com:8088/assets/img/sidebar-1.jpg">
+          <!--
+            Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
+    
+            Tip 2: you can also add an image using data-image tag
+        -->
+          <div class="logo">
+            <a href="http://tiptopmail.com/" class="simple-text logo-normal">
+              <img src="http://tiptopdrive.com:8088/assets/img/logo_planet.png" width="150" height="40">
+              <br>
+              IoT Dashboard
+            </a>
+          </div>
+          <div class="sidebar-wrapper">
+            <ul class="nav">
+                <li id="dashboard_pan" class="nav-item ">
+                    <a class="nav-link" onclick="moveTo('dashboard')">
+                      <i class="material-icons">dashboard</i>
+                      <p>Dashboard</p>
+                    </a>
+                </li>
+                <li class="nav-item ">
+                <a class="nav-link collapsed" data-toggle="collapse" href="#ownDevices" aria-expanded="false">
+                  <i class="material-icons">home</i>
+                  <p> My Rooms
+                    <b class="caret"></b>
+                  </p>
+                </a>
+                <div class="collapse" id="ownDevices" style="">
+                  <ul class="nav">
+                    {{#payload.own}}
+                    <li id="{{DeviceName}}_pan" class="nav-item">
+                      <a class="nav-link" onclick="moveTo('{{DeviceName}}')">
+                        <span class="sidebar-normal">{{DeviceName}}</span>
+                      </a>
+                    </li>
+                    {{/payload.own}}
+                  </ul>
+                </div>
+              </li>
+                <li class="nav-item ">
+                <a class="nav-link collapsed" data-toggle="collapse" href="#rentDevices" aria-expanded="false">
+                  <i class="material-icons">cloud_download</i>
+                  <p> Shared to me
+                    <b class="caret"></b>
+                  </p>
+                </a>
+                <div class="collapse" id="rentDevices" style="">
+                  <ul class="nav">
+                    {{#payload.rent}}
+                    <li id="{{DeviceName}}_pan" class="nav-item">
+                      <a class="nav-link" onclick="moveTo('{{DeviceName}}')">
+                        <span class="sidebar-normal">{{DeviceName}}</span>
+                      </a>
+                    </li>
+                    {{/payload.rent}}
+                  </ul>
+                </div>
+              </li>
+                <li class="nav-item ">
+                <a class="nav-link collapsed" data-toggle="collapse" href="#myShares" aria-expanded="false">
+                  <i class="material-icons">cloud_upload</i>
+                  <p> Shared by me
+                    <b class="caret"></b>
+                  </p>
+                </a>
+                <div class="collapse" id="myShares" style="">
+                  <ul class="nav">
+                    {{#payload.own}}
+                    {{#shares.length}}
+                    <li id="{{DeviceName}}_share_pan" class="nav-item">
+                      <a class="nav-link" onclick="moveTo('{{DeviceName}}_share')">
+                        <span class="sidebar-normal">{{DeviceName}}</span>
+                      </a>
+                    </li>
+                    {{/shares.length}}
+                    {{/payload.own}}
+                  </ul>
+                </div>
+              </li>
+                <li id="profile_pan" class="nav-item ">
+                    <a class="nav-link" onclick="moveTo('profile');">
+                      <i class="material-icons">person</i>
+                      <p>User Profile</p>
+                    </a>
+                  </li>
+            </ul>
+          </div>
+        </div>
+        <div class="main-panel">
+          <!-- Navbar -->
+          <nav class="navbar navbar-expand-lg navbar-dark bg-primary navbar-absolute fixed-top  ">
+            <div class="container-fluid">
+              <div class="navbar-wrapper">
+                <a class="navbar-brand" href="#pablo">Dashboard</a>
+              </div>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="navbar-toggler-icon icon-bar"></span>
+                <span class="navbar-toggler-icon icon-bar"></span>
+                <span class="navbar-toggler-icon icon-bar"></span>
+              </button>
+              <div class="collapse navbar-collapse justify-content-end">
+                <form class="navbar-form">
+                </form>
+                <ul class="navbar-nav">
+                  <li class="nav-item dropdown">
+                    <a class="nav-link" href="/iot/dashboard" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <i class="material-icons">person</i>
+                      <p class="d-lg-none d-md-block">
+                        Account
+                      </p>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
+                      <a class="dropdown-item" href="#" onclick="userPan();">Profile</a>
+                      <div class="dropdown-divider"></div>
+                      <a class="dropdown-item" href="/iot/logout">Log out</a>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+          <!-- End Navbar -->
+          <div class="content">
+            {{#payload.acts}} {{#actions}} {{#Params.length}}
+<!-- Modal -->
+<div class="modal fade" id="{{RelayTypeId}}_{{ActionName}}_model" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">{{RelayName}}/{{ActionName}}</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="{{RelayTypeId}}_{{ActionName}}_form">
+
+                    <div class="form-group" style="display: none;">
+                        <label for="DeviceResourceId" class="bmd-label-floating">DeviceResourceId</label>
+                        <input type="text" class="form-control" name="DeviceResourceId" id="DeviceResourceId">
+                    </div>
+
+                    <div class="form-group" style="display: none;">
+                        <label for="DeviceId" class="bmd-label-floating">DeviceId</label>
+                        <input type="text" class="form-control" name="DeviceId" id="DeviceId">
+                    </div>
+
+                    <div class="form-group" style="display: none;">
+                        <label for="RelayId" class="bmd-label-floating">RelayId</label>
+                        <input type="text" class="form-control" name="RelayId" id="RelayId">
+                    </div>
+
+                    {{#Params}}
+                    <div class="form-group">
+                        <label for="{{.}}" class="bmd-label-floating">{{.}}</label>
+                        <input type="text" class="form-control" name="{{.}}" id="{{.}}">
+                    </div>
+                    {{/Params}}
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Discard</button>
+                <button type="button" class="btn btn-primary" onclick="makeAction('{{RelayTypeId}}_{{ActionName}}_form','{{payload.data.ttapi}}');">Action</button>
+            </div>
+        </div>
+    </div>
+</div>
+{{/Params.length}} {{/actions}} {{/payload.acts}}
+
+
+<div id="dashboard_div" class="container-fluid mydiv">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card card-stats">
+              <div class="card-header card-header-warning" data-header-animation="true">
+                <i class="material-icons">home</i>
+                <h2 class="card-category text-right">My Devices</h2>
+                <h1 class="card-title text-right">{{payload.Count.own}}</h1>
+              </div>
+              
+              <div class="card-body">
+                  <div class="card-actions text-center">
+                  <button type="button" class="btn btn-danger btn-link fix-broken-card">
+                    <i class="material-icons">build</i> Fix Header!
+                  </button>
+                  <button type="button" class="btn btn-default btn-link" rel="tooltip" data-placement="bottom" title="" data-original-title="View">
+                    <i class="material-icons">art_track</i>
+                  </button>
+                </div>
+              </div>
+              <div class="card-footer">
+              </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card card-stats">
+              <div class="card-header card-header-success">
+                
+                    <i class="material-icons">cloud_upload</i>
+                
+                <h2 class="card-category text-right">Shared By Me</h2>
+                <h1 class="card-title text-right">{{payload.Count.shares}}</h1>
+              </div>
+              <div class="card-footer">
+              </div>
+          </div>
+            
+        </div>
+        <div class="col-md-4">
+            <div class="card card-stats">
+              <div class="card-header card-header-info">
+                
+                    <i class="material-icons">cloud_download</i>
+                
+                <h2 class="card-category text-right">Shared To Me</h2>
+                <h1 class="card-title text-right">{{payload.Count.rent}}</h1>
+              </div>
+              <div class="card-footer">
+              </div>
+          </div>
+            
+        </div>
+    </div>
+</div>
+
+{{#payload.own}}
+<div id="{{DeviceName}}_div" class="container-fluid mydiv">
+    <h1>{{DeviceName}}</h1>
+    <div class="row">
+        {{#Detail}}
+        <div class="col-lg-3 col-md-6 col-sm-6 col-xs-6">
+            <div class="card card-stats">
+                {{#isOnline}}
+                <div id="{{DeviceId}}_{{RelayId}}" class="card-header card-header-info card-header-icon">
+                    <div class="card-icon">
+                        {{#isShandilear}}
+                        {{#DeviceState}}<a href="" class="roo-light-oniot-icons icon-common"></a>{{/DeviceState}}{{^DeviceState}}<a href="" class="roo-light-offiot-icons icon-common"></a>{{/DeviceState}}</i>
+                        {{/isShandilear}}
+                        {{^isShandilear}}
+                        {{#DeviceState}}<a href="" class="bulb-oniot-icons icon-common"></a>{{/DeviceState}}{{^DeviceState}}<a href="" class="bulb-offiot-icons icon-common"></a>{{/DeviceState}}</i>
+                        {{/isShandilear}}
+                    </div>
+                    
+                    <h5 class="card-title">{{#DeviceState}}ON{{/DeviceState}}{{^DeviceState}}OFF{{/DeviceState}}</h5>
+                </div>
+                <div class="card-body  text-left">
+                    <div class="switch-container">
+                            {{#actions.actions}}
+                            {{#isSwitch}}
+                            <div class="iot-button {{#DeviceState}}switch-on{{/DeviceState}}{{^DeviceState}}switch-off{{/DeviceState}} switch-style ">
+                                <div class="left-heading">Switch</div>
+                                <div class="right-label">
+                            <label>
+                              <input type="checkbox" {{#DeviceState}}checked{{/DeviceState}} onclick="actDirect('{{DeviceResourceId}}','{{DeviceId}}','{{RelayId}}','{{RelayUserName}}','{{ActionName}}','{{DeviceState}}','{{payload.ttapi}}');">
+                              <div>
+                                <span class="on">On</span>
+                                <span class="off">Off</span>
+                              </div>  
+                              <i></i>
+                            </label></div>
+                            </div>
+                            {{/isSwitch}}
+                            {{^isSwitch}}
+                            {{#isBrightness}}
+                            <div class="range-container brightness-ui">
+                                <div class="left-heading">Brightness</div>
+                                <div class="range-slider">
+                                  <input type="range">
+                                </div>
+                            </div>
+                            {{/isBrightness}}
+                            {{^isBrightness}}
+                            <div class="range-container brightness-ui">
+                                <div class="left-heading">Abc</div>
+                                <div>
+                                    <button class="btn btn-primary btn-fab btn-fab-mini btn-round">
+                                      <i class="material-icons">favorite</i>
+                                    </button>
+                                </div>
+                            </div>
+                            {{/isBrightness}}
+                            {{/isSwitch}}
+                            {{/actions.actions}}
+                        </div>
+                    <div class="row">
+                    </div>
+                </div>
+                <div class="card-footer">
+                </div>
+                {{/isOnline}} {{^isOnline}}
+                <div class="card-header card-header-default card-header-icon">
+                    <div class="card-icon">
+                        <i class="material-icons">highlight_off</i>
+                    </div>
+                    
+                    <h5 class="card-title">{{#DeviceState}}ON{{/DeviceState}}{{^DeviceState}}OFF{{/DeviceState}}</h5>
+                </div>
+                {{/isOnline}}
+            </div>
+        </div>
+        {{/Detail}}
+    </div>
+</div>
+{{/payload.own}}
+
+{{#payload.rent}}
+<div id="{{DeviceName}}_div" class="container-fluid  mydiv">
+    <h1>{{DeviceName}}</h1>
+    <div class="row">
+        {{#Detail}}
+        <div class="col-lg-3 col-md-6 col-sm-6 col-xs-6">
+            <div class="card card-stats">
+                {{#isOnline}}
+                <div id="{{DeviceId}}_{{RelayId}}" class="card-header card-header-info card-header-icon">
+                    <h5 class="card-title">{{#DeviceState}}ON{{/DeviceState}}{{^DeviceState}}OFF{{/DeviceState}}</h5>
+                    <div class="card-icon">
+                        {{#isShandilear}}
+                        {{#DeviceState}}<a href="" class="roo-light-oniot-icons icon-common"></a>{{/DeviceState}}{{^DeviceState}}<a href="" class="roo-light-offiot-icons icon-common"></a>{{/DeviceState}}</i>
+                        {{/isShandilear}}
+                        {{^isShandilear}}
+                        {{#DeviceState}}<a href="" class="bulb-oniot-icons icon-common"></a>{{/DeviceState}}{{^DeviceState}}<a href="" class="bulb-offiot-icons icon-common"></a>{{/DeviceState}}</i>
+                        {{/isShandilear}}
+                    </div>
+                    <p class="card-category">{{DeviceName}}</p>
+                    
+                </div>
+                <div class="card-body  text-left">
+                    <div class="switch-container">
+                            {{#actions.actions}}
+                            {{#isSwitch}}
+                            <div class="iot-button {{#DeviceState}}switch-on{{/DeviceState}}{{^DeviceState}}switch-off{{/DeviceState}} switch-style ">
+                                <div class="left-heading">Switch</div>
+                                <div class="right-label">
+                            <label>
+                              <input type="checkbox" {{#DeviceState}}checked{{/DeviceState}} onclick="actDirect('{{DeviceResourceId}}','{{DeviceId}}','{{RelayId}}','{{RelayUserName}}','{{ActionName}}','{{DeviceState}}','{{payload.ttapi}}');">
+                              <div>
+                                <span class="on">On</span>
+                                <span class="off">Off</span>
+                              </div>  
+                              <i></i>
+                            </label></div>
+                            </div>
+                            {{/isSwitch}}
+                            {{^isSwitch}}
+                            {{#isBrightness}}
+                            <div class="range-container brightness-ui">
+                                <div class="left-heading">Brightness</div>
+                                <div class="range-slider">
+                                  <input type="range">
+                                </div>
+                            </div>
+                            {{/isBrightness}}
+                            {{^isBrightness}}
+                            <div class="range-container brightness-ui">
+                                <div class="left-heading">Abc</div>
+                                <div>
+                                    <button class="btn btn-primary btn-fab btn-fab-mini btn-round">
+                                      <i class="material-icons">favorite</i>
+                                    </button>
+                                </div>
+                            </div>
+                            {{/isBrightness}}
+                            {{/isSwitch}}
+                            {{/actions.actions}}
+                        </div>
+                    <div class="row">
+                    </div>
+                </div>
+                <div class="card-footer">
+                </div>
+                {{/isOnline}} {{^isOnline}}
+                <div class="card-header card-header-default card-header-icon">
+                    <div class="card-icon">
+                        <i class="material-icons">highlight_off</i>
+                    </div>
+                    <p class="card-category">{{DeviceName}}</p>
+                    <h3 class="card-title">{{SwitchUserName}}</h3>
+                    <h5 class="card-title">{{#DeviceState}}ON{{/DeviceState}}{{^DeviceState}}OFF{{/DeviceState}}</h5>
+                </div>
+                {{/isOnline}}
+            </div>
+        </div>
+        {{/Detail}}
+    </div>
+</div>
+{{/payload.rent}}
+
+<div id="profile_div" class="container-fluid  mydiv">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header card-header-icon card-header-rose">
+                    <div class="card-icon">
+                        <i class="material-icons">perm_identity</i>
+                    </div>
+                    <h4 class="card-title">Profile</h4>
+                </div>
+                <div class="card-body">
+                    <form>
+                        <div class="form-group">
+                            <label class="bmd-label-floating">FullName</label>
+                            <input type="text" class="form-control" value="{{payload.profile.FullName}}" disabled>
+                        </div>
+                        <div class="form-group">
+                            <label class="bmd-label-floating">UserName</label>
+                            <input type="text" class="form-control" value="{{payload.profile.UserName}}" disabled>
+                        </div>
+                        <div class="form-group">
+                            <label class="bmd-label-floating">TenantID</label>
+                            <input type="text" class="form-control" value="{{payload.profile.TenantID}}" disabled>
+                        </div>
+                        <div class="form-group">
+                            <label class="bmd-label-floating">EmailID</label>
+                            <input type="text" class="form-control" value="{{payload.profile.EmailID}}" disabled>
+                        </div>
+                        <div class="form-group">
+                            <label class="bmd-label-floating">UserId</label>
+                            <input type="text" class="form-control" value="{{payload.profile.UserId}}" disabled>
+                        </div>
+                        <div class="clearfix"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{#payload.own}}
+{{#shares.length}}
+<div id="{{DeviceName}}_share_div" class="container-fluid  mydiv">
+    <div class="row" id="shareTables">
+        <h1>{{DeviceName}}</h1>
+        {{#shares}}
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header card-header-rose card-header-icon">
+                    <div class="card-icon">
+                        <i class="material-icons">assignment</i>
+                    </div>
+                    <h4 class="card-title">{{UserIdentification}}</h4>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>BoardRelayId</th>
+                                    <th>Read</th>
+                                    <th>Activate</th>
+                                    <th class="text-right"> Edit/Revoke </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {{#BoardRelays}}
+                                <tr>
+                                    <td>{{BoardRelayId}}</td>
+                                    <td>
+                                        <div class="form-check">
+                                            <label class="form-check-label">
+                                                <input class="form-check-input" type="checkbox" value="" {{#read}}checked="" {{/read}} disabled>
+                                                <span class="form-check-sign">
+                                  <span class="check"></span>
+                                                </span>
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-check">
+                                            <label class="form-check-label">
+                                                <input class="form-check-input" type="checkbox" value="" {{#write}}checked="" {{/write}} disabled>
+                                                <span class="form-check-sign">
+                                  <span class="check"></span>
+                                                </span>
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td class="td-actions text-right">
+                                        <button type="button" rel="tooltip" class="btn btn-success" onclick="edit('{{relayName}}','{{name}}','{{read}}','{{write}}');" data-toggle="modal" data-target="#editModal" data-original-title="" title="">
+                                            <i class="material-icons">edit</i>
+                                        </button>
+                                        <button type="button" rel="tooltip" class="btn btn-danger" onclick="revoke('{{relayName}}','{{name}}','{{read}}','{{write}}');" data-original-title="" title="">
+                                            <i class="material-icons">close</i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                {{/BoardRelays}}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{/shares}}
+    </div>
+</div>
+{{/shares.length}}
+{{/payload.own}}
+
+ <!-- Modal -->
+        <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Edit permission</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <fieldset>
+                                <div class="form-group">
+                                    <label for="disabledSelect">User</label>
+                                    <input type="text" class="form-control disabled" id="editUser" value="user10">
+                                </div>
+                                <div class="form-check">
+                                    <label class="form-check-label">
+                                        <input class="form-check-input" type="checkbox" id="editReadState"> Read
+                                        <span class="form-check-sign">
+                                <span class="check"></span>
+                                        </span>
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <label class="form-check-label">
+                                        <input class="form-check-input" type="checkbox" id="editWriteState"> Activate
+                                        <span class="form-check-sign">
+                                <span class="check"></span>
+                                        </span>
+                                    </label>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-primary">Share</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Share device</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="shareDivForm">
+                            <fieldset>
+                                <div class="form-group" style="display: none;">
+                                    <label for="DeviceName" class="bmd-label-floating">DeviceName</label>
+                                    <input type="text" class="form-control" name="DeviceName" id="DeviceName">
+                                </div>
+            
+                                <div class="form-group" style="display: none;">
+                                    <label for="DeviceId" class="bmd-label-floating">DeviceId</label>
+                                    <input type="text" class="form-control" name="DeviceId" id="DeviceId">
+                                </div>
+            
+                                <div class="form-group" style="display: none;">
+                                    <label for="RelayId" class="bmd-label-floating">RelayId</label>
+                                    <input type="text" class="form-control" name="RelayId" id="RelayId">
+                                </div>
+                                <div class="form-group">
+                                    <label >Select user</label>
+                                    <select id="sharedUser" class="form-control">
+                                        {{#payload.contacts}}
+                                        {{#<PlatformId>k__BackingField}}
+                                        <option value="{{<PlatformId>k__BackingField}}">{{<EmployeeName>k__BackingField}}</option>
+                                        {{/<PlatformId>k__BackingField}}
+                                        {{/payload.contacts}}
+                                    </select>
+                                </div>
+                                <div class="form-check">
+                                    <label class="form-check-label">
+                                        <input class="form-check-input" type="checkbox" id="shareReadState"> Read
+                                        <span class="form-check-sign">
+                                <span class="check"></span>
+                                        </span>
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <label class="form-check-label">
+                                        <input class="form-check-input" type="checkbox" id="shareReadState"> Activate
+                                        <span class="form-check-sign">
+                                <span class="check"></span>
+                                        </span>
+                                    </label>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-primary" onclick="shareIt();">Share</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+          </div>
+          <footer class="footer">
+            <div class="container-fluid">
+              <nav class="float-left">
+                <ul>
+                  <li>
+                    <a href="http://tiptopmail.com/">
+                      Tip Top
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+              <div class="copyright float-right">
+                &copy;
+                <script>
+                  document.write(new Date().getFullYear())
+                </script>, TipTop PLatform P. Ltd
+              </div>
+            </div>
+          </footer>
+        </div>
+      </div>
+      <script>
+        
+        function act( DeviceResourceId,DeviceId,RelayId,RelayName,ActionName ){
+            //alert(payload)
+            $("#"+RelayName+"_"+ActionName+"_form input[id=DeviceResourceId]").val(DeviceResourceId);
+            $("#"+RelayName+"_"+ActionName+"_form input[id=DeviceId]").val(DeviceId);
+            $("#"+RelayName+"_"+ActionName+"_form input[id=RelayId]").val(RelayId);
+            $("#"+RelayName+"_"+ActionName+"_model").modal('show');
+        }
+        
+        function moveTo( divId ){
+            $('.nav-item ').removeClass("active");
+            $('#'+divId+"_pan").addClass("active");
+            $(".mydiv").hide();
+            $('#'+divId+"_div").show();
+            if (mobile_menu_visible == 1) {
+                $( ".navbar-toggler" ).trigger( "click" );
+            }
+        }
+        function actDirect( DeviceResourceId,DeviceId,RelayId,RelayName,ActionName,DeviceState,ttapi ){
+            if( $("#"+DeviceId+"_"+RelayId+" h5").text() == "OFF"){
+                DeviceState = 0;
+            }
+            else{
+                DeviceState = 1;
+            }
+            var data = {
+                "DeviceResourceId": DeviceResourceId,
+                "Action": "Switch",
+                "TenantId": 3,
+                "RelayId": RelayId,
+                "DeviceState": DeviceState
+            }
+            var posting = $.post( '/iot/actionHandler', data );
+              posting.done(function( data ) {
+                    var x = $("#"+DeviceId+"_"+RelayId+" h5").text();
+                    if(x == "OFF"){
+                        $("#"+DeviceId+"_"+RelayId+" h5").text("ON");
+                        //$("#"+DeviceId+"_"+RelayId).addClass("card-header-success")
+                        //$("#"+DeviceId+"_"+RelayId).removeClass("card-header-danger")
+                        //$("#"+DeviceId+"_"+RelayId+" i").text("thumb_up");
+                        $("#"+DeviceId+"_"+RelayId+" a").removeClass("bulb-offiot-icons");
+                        $("#"+DeviceId+"_"+RelayId+" a").addClass("bulb-oniot-icons");
+                        
+                    }
+                    else{
+                        $("#"+DeviceId+"_"+RelayId+" h5").text("OFF");
+                        //$("#"+DeviceId+"_"+RelayId).addClass("card-header-danger")
+                        //$("#"+DeviceId+"_"+RelayId).removeClass("card-header-success")
+                        //$("#"+DeviceId+"_"+RelayId+" i").text("thumb_down");
+                        $("#"+DeviceId+"_"+RelayId+" a").removeClass("bulb-oniot-icons");
+                        $("#"+DeviceId+"_"+RelayId+" a").addClass("bulb-offiot-icons");
+                    }
+                    //window.location.href ="http://tiptopdrive.com:8088/iot/dashboard/?room="+room;
+              });
+        }
+        
+        function makeAction(formID , ttapis){
+            var ttapi = {
+                ApplicationId:"{{data.ttapi.ApplicationId}}",
+                ClientIpAddress:"{{data.ttapi.ClientIpAddress}}",
+                ApiAccessToken:"{{data.ttapi.ApiAccessToken}}",
+                Authorization:"{{data.ttapi.Authorization}}",
+                TenantId:"{{data.ttapi.TenantId}}",
+                TenantOuId:"{{data.ttapi.TenantOuId}}"
+            }
+           
+            var res  = $('#'+formID).serializeArray();
+            //alert(JSON.parse(res));
+            //var room = $("#roomName").val();
+            var temp = {}
+            for(var i=0;i<res.length;i++){
+                temp[res[i].name] = res[i].value;
+            }
+            //temp.ttapi = ttapi;
+            //room = $("#actForm").serializeArray()["roomName"]//$("#actForm :input[id='roomName']").val();
+            //alert(temp);
+            //var posting = $.post( '/iot/actionHandler', temp );
+              /*posting.done(function( data ) {
+                    alert(data)
+                    //window.location.href ="http://tiptopdrive.com:8088/iot/dashboard/?room="+room;
+              });*/
+              $("#"+RelayName+"_"+ActionName+"_model").modal('hide');
+        }
+        
+      function edit(relayName, name , read , write){
+        //  alert("edit "+relayName+" "+name+" "+read+" "+write)
+        $("#editUser").val(name);
+          if(read)
+              $("#editReadState").attr('checked', true);
+          
+          else
+            $("#editReadState").attr('checked', false);
+          if(write)
+              $("#editWriteState").attr('checked', true);
+          
+          else
+              $("#editWriteState").attr('checked', false);
+          
+      }
+      function revoke(relayName, name , read , write){
+          alert("revoke "+relayName+" "+name+" "+read+" "+write)
+          
+      }
+      function add(relayName){
+          //alert("add "+relayName)
+      }
+  </script>
+  
+  <!--   Animations JS Files   -->
+   <!-- Add your site or application content here -->
+  <script src="http://tiptopdrive.com:8088/anims/js/vendor/modernizr-3.6.0.min.js"></script>
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/rangeslider.js/2.3.0/rangeslider.min.js'></script>
+  <script src="http://tiptopdrive.com:8088/anims/js/plugins.js"></script>
+  <script src="http://tiptopdrive.com:8088/anims/js/main.js"></script>
+  <!--   Core JS Files   -->
+  
+  <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/js/bootstrap-select.min.js"></script>
+  <script src="../assets/js/core/popper.min.js"></script>
+  <script src="../assets/js/core/bootstrap-material-design.min.js"></script>
+  <script src="../assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+  <!-- Plugin for the momentJs  -->
+  <script src="../assets/js/plugins/moment.min.js"></script>
+  <!-- Forms Validations Plugin -->
+  <script src="../assets/js/plugins/jquery.validate.min.js"></script>
+  <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
+  <script src="../assets/js/material-dashboard.min.js?v=2.1.1" type="text/javascript"></script>
+  <script>
+
+    $(document).ready(function() {
+        //$("#profile").hide();
+        //$("#share").hide();
+        $(".mydiv").hide();
+        $("#dashboard_div").show();
+        $('#dashboard_pan').addClass("active");
+        // alert(JSON.stringify({{payload}}));
+      $().ready(function() {
+        $sidebar = $('.sidebar');
+
+        $sidebar_img_container = $sidebar.find('.sidebar-background');
+
+        $full_page = $('.full-page');
+
+        $sidebar_responsive = $('body > .navbar-collapse');
+
+        window_width = $(window).width();
+
+        fixed_plugin_open = $('.sidebar .sidebar-wrapper .nav li.active a p').html();
+
+        if (window_width > 767 && fixed_plugin_open == 'Dashboard') {
+          if ($('.fixed-plugin .dropdown').hasClass('show-dropdown')) {
+            $('.fixed-plugin .dropdown').addClass('open');
+          }
+
+        }
+
+        $('.fixed-plugin a').click(function(event) {
+          // Alex if we click on switch, stop propagation of the event, so the dropdown will not be hide, otherwise we set the  section active
+          if ($(this).hasClass('switch-trigger')) {
+            if (event.stopPropagation) {
+              event.stopPropagation();
+            } else if (window.event) {
+              window.event.cancelBubble = true;
+            }
+          }
+        });
+
+        $('.fixed-plugin .active-color span').click(function() {
+          $full_page_background = $('.full-page-background');
+
+          $(this).siblings().removeClass('active');
+          $(this).addClass('active');
+
+          var new_color = $(this).data('color');
+
+          if ($sidebar.length != 0) {
+            $sidebar.attr('data-color', new_color);
+          }
+
+          if ($full_page.length != 0) {
+            $full_page.attr('filter-color', new_color);
+          }
+
+          if ($sidebar_responsive.length != 0) {
+            $sidebar_responsive.attr('data-color', new_color);
+          }
+        });
+
+        $('.fixed-plugin .background-color .badge').click(function() {
+          $(this).siblings().removeClass('active');
+          $(this).addClass('active');
+
+          var new_color = $(this).data('background-color');
+
+          if ($sidebar.length != 0) {
+            $sidebar.attr('data-background-color', new_color);
+          }
+        });
+
+        $('.fixed-plugin .img-holder').click(function() {
+          $full_page_background = $('.full-page-background');
+
+          $(this).parent('li').siblings().removeClass('active');
+          $(this).parent('li').addClass('active');
+
+
+          var new_image = $(this).find("img").attr('src');
+
+          if ($sidebar_img_container.length != 0 && $('.switch-sidebar-image input:checked').length != 0) {
+            $sidebar_img_container.fadeOut('fast', function() {
+              $sidebar_img_container.css('background-image', 'url("' + new_image + '")');
+              $sidebar_img_container.fadeIn('fast');
+            });
+          }
+
+          if ($full_page_background.length != 0 && $('.switch-sidebar-image input:checked').length != 0) {
+            var new_image_full_page = $('.fixed-plugin li.active .img-holder').find('img').data('src');
+
+            $full_page_background.fadeOut('fast', function() {
+              $full_page_background.css('background-image', 'url("' + new_image_full_page + '")');
+              $full_page_background.fadeIn('fast');
+            });
+          }
+
+          if ($('.switch-sidebar-image input:checked').length == 0) {
+            var new_image = $('.fixed-plugin li.active .img-holder').find("img").attr('src');
+            var new_image_full_page = $('.fixed-plugin li.active .img-holder').find('img').data('src');
+
+            $sidebar_img_container.css('background-image', 'url("' + new_image + '")');
+            $full_page_background.css('background-image', 'url("' + new_image_full_page + '")');
+          }
+
+          if ($sidebar_responsive.length != 0) {
+            $sidebar_responsive.css('background-image', 'url("' + new_image + '")');
+          }
+        });
+
+        $('.switch-sidebar-image input').change(function() {
+          $full_page_background = $('.full-page-background');
+
+          $input = $(this);
+
+          if ($input.is(':checked')) {
+            if ($sidebar_img_container.length != 0) {
+              $sidebar_img_container.fadeIn('fast');
+              $sidebar.attr('data-image', '#');
+            }
+
+            if ($full_page_background.length != 0) {
+              $full_page_background.fadeIn('fast');
+              $full_page.attr('data-image', '#');
+            }
+
+            background_image = true;
+          } else {
+            if ($sidebar_img_container.length != 0) {
+              $sidebar.removeAttr('data-image');
+              $sidebar_img_container.fadeOut('fast');
+            }
+
+            if ($full_page_background.length != 0) {
+              $full_page.removeAttr('data-image', '#');
+              $full_page_background.fadeOut('fast');
+            }
+
+            background_image = false;
+          }
+        });
+
+        $('.switch-sidebar-mini input').change(function() {
+          $body = $('body');
+
+          $input = $(this);
+
+          if (md.misc.sidebar_mini_active == true) {
+            $('body').removeClass('sidebar-mini');
+            md.misc.sidebar_mini_active = false;
+
+            $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar();
+
+          } else {
+
+            $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar('destroy');
+
+            setTimeout(function() {
+              $('body').addClass('sidebar-mini');
+
+              md.misc.sidebar_mini_active = true;
+            }, 300);
+          }
+
+          // we simulate the window Resize so the charts will get updated in realtime.
+          var simulateWindowResize = setInterval(function() {
+            window.dispatchEvent(new Event('resize'));
+          }, 180);
+
+          // we stop the simulation of Window Resize after the animations are completed
+          setTimeout(function() {
+            clearInterval(simulateWindowResize);
+          }, 1000);
+
+        });
+      });
+    });
+  </script>
+</body>
+</html>

@@ -170,6 +170,7 @@
 					<div class="mapouter">
 						<div class="gmap_canvas">
 							<iframe class="gmap_iframe" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100&amp;height=100&amp;hl=en&amp;q=83/57, Sector 8, Pratap Nagar  Jaipur, Rajasthan - 302033&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe></div><style>.mapouter{position:relative;text-align:right;width: 50%;  margin: 0 auto 10% auto;}.gmap_canvas {overflow:hidden;background:none!important;height:200px;}.gmap_iframe {width: 20vw!important;}</style></div></td>
+                    
 				</div>
 				<div class="contactdetails">
 					<h2>Contact Us</h2>
