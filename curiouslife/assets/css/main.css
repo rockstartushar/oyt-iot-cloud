@@ -1,0 +1,301 @@
+html, body, *{
+    margin: 0;
+    padding: 0;
+}
+/* Common */
+body{
+    background-color: darkgrey;
+    overflow-x: hidden;
+}
+.sec {
+    margin: auto 5%;
+}
+a, button {
+    pointer-events: visible;
+}
+/* Nav part */
+    
+.navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: transparent;
+    position: sticky;
+    height: 60px;
+    width: 100%;
+    z-index: 1;
+    font-family: sans-serif;
+    padding: 1vw 1vw 1vw 1vw;
+    box-shadow: 0.02em 0.05em 0.5em rgb(0 0 0 / 48%);
+}
+.logo {
+    width: 15%;
+    display: flex;
+    height: 110%;
+    margin: 0px 35px;
+}
+.nav-list{
+    display: flex;
+    width: 60%;
+}
+.right-nav{
+    display: flex;
+    width: 25%;
+    padding-left: 20vw;
+}
+.nav-items{
+    font-weight: bold;
+    margin-left: 1vw;
+    text-decoration: none;
+    color: #132c33;
+    height: 35px;
+    text-align: center;
+    padding-left: 1vw;
+    padding-top: 1vw;
+    padding-right: 1vw;
+    margin-top: .5vw;
+}
+.nav-items:hover{
+    color: #126e82;
+}
+.nav-items:active {
+    background-color: #4CAF50;
+}
+.navbox{
+    display: none;
+}
+.login, .signup{
+    background-color: #51c4d3;
+    color: #132c33;
+    border-radius: .5em;
+}
+.login:hover, .signup:hover{
+    color: #126e82;
+    transform: scale(1.1);
+}
+/* .login {
+    border: 1px solid white;
+    border-color: transparent #132c33 transparent transparent;
+} */
+.drop {
+    position: relative;
+}
+/* .drop:hover .explore-list {
+    display: flex;
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.48);
+-webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.48);
+-moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.48);
+} */
+.explore-list{
+    text-align: center;
+    flex-direction: column;
+    display: none;
+    position: absolute;
+    z-index: 1;
+    color: #132c33;
+    width: 160px;
+    background-color: #51c4d3;
+    box-shadow: 0.02em 0.05em 0.5em rgb(0 0 0 / 48%);
+    border-radius: .5em;
+    margin-top: 1px;
+}
+.explore-items{
+    text-decoration: none;
+    color: #132c33;
+    height: 35px;
+    text-align: center;
+    padding-left: 1vw;
+    padding-top: 1vw;
+    padding-right: 1vw;
+}
+.explore-items:nth-child(2){
+    border-bottom: 1px solid #d8e3e7;
+    border-top: 1px solid #d8e3e7;
+}
+.explore-items:hover{
+    color: #126e82;
+}
+
+.breadcrumb {
+    display: none;
+}
+/* Banner */
+.banner {
+    background-image: url('../../images/banner 1.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position:center;
+    height: 35em;
+    /* padding-bottom: 5vw; */
+
+}
+.bannertxt{
+    background: transparent;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #000, transparent);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #000, transparent); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    
+    padding-left: 5vw;
+    height: 100%;
+
+}
+.bannertxt h1 {
+    padding-top: 5vw;
+padding-left: 5vw;
+    color: white;
+    font-size: 3em;
+    text-shadow: 1px 1px 6px rgba(150, 150, 150, 1);
+}
+.bannertxt h1 span{
+    color: whitesmoke;
+    text-decoration-line: underline;
+    text-decoration-color: #fbeeac;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    color: white;
+    background-color: black;
+    border-top: 1px solid white;
+}
+
+.contact hr{
+    margin-bottom: 5pc;
+    width: 100%;
+}
+.contact{
+  width: 100%;
+  margin: 0;
+  background-color: #132c33;
+  color:#d8e3e7;
+
+}
+.address {
+    width: 40%;
+}
+.contact-view {
+    display: flex;
+    /* max-width: 100%; */
+    /* overflow-x: hidden;*/
+}
+.contact-view hr{
+    width: 100%;
+}
+.footerlogo{
+    width: 50%;
+    margin: 0 auto;
+}
+.footerlogo img{
+    width: 60%;
+}
+address {
+    margin: 0 auto;
+    width: 50%;
+}
+.contact-view table{
+    width: 40%;
+    text-align: left;
+}
+.contactdetails{
+    margin-right: 10%;
+    width: 30%;
+}
+.contactdetails p, .querysec p{
+    font-size: 3vw;
+    margin-bottom: 20px;
+}
+.contactdetails a{
+    color: white;
+    text-align: center;
+}
+.contactdetails .icons{
+    margin: 20px auto;
+    margin-top: 3pc;
+    font-size: larger;
+    font-weight: bolder;
+    text-align: center;
+    display: inline-flex;
+}
+.contactdetails .icons p{
+    color: black;
+    width: 20%;
+    margin: auto 10px;
+}
+.querysec, .queryform {
+    display: flex;
+    flex-direction: column;
+    padding: 1%;
+}
+.queryform *{
+    width: 80%;
+    padding: .5vw;
+    outline: none;
+    margin: .5vw;
+}
+@media only screen and (max-width: 600px) {
+    /* navbar reposive view */
+    .nav-list, .right-nav{
+        display: none;
+    }
+    .logo {
+        width: 20%;
+        
+    }
+    .breadcrumb {
+        display: flex;
+        flex-direction: column;
+        margin: 1em;
+        width: 12%;
+        float: right;
+        color: #132c13;
+        text-align: center;
+        font-weight: bolder;
+    }
+    .dash {
+        width: 80%;
+        height: 7px;
+        background-color: transparent;
+        border-top: 5px solid #132c33;
+        /* right: 10px; */
+    }
+    .navbox{
+        text-align: center;
+        flex-direction: column;
+        display: none;
+        position: fixed;
+        z-index: 1;
+        height: 100%;
+        width: 100%;
+        background-color: black;
+        box-shadow: 10px 10px 5px 0px rgba(110, 107, 107, 0.48);
+        -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.48);
+        -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.48);
+    }
+    .navbottom{
+        margin: auto;
+        text-align: center;
+        display: flex;
+        color: white;
+    }
+    .explore i{
+        color: #132c33;
+    }
+    .explorebox{
+        display: flex;
+        flex-direction: column;
+        color: white;
+    }
+    .contact-view{
+        display: flex;
+        flex-direction: column;
+    }
+    .footerlogo{
+        margin-top: 10px;
+    }
+    .footerlogo img{
+        width: 15vw;
+    }
+    .contact-view *{
+        width: 90%;
+    }
+}

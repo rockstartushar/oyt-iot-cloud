@@ -1,0 +1,183 @@
+.container{
+    background-color: blueviolet;
+    color: white;
+    width: 100%;
+    font-size: 3vw;
+    padding-top: 20px;
+}
+
+.welcome p{  
+    width: 100%;
+    font-size: 3vw;
+    margin: 2vw;
+    text-align: center;
+}
+.welcome h2{
+    font-size: 2vw;
+    outline: none;
+    border: none;       
+    color: white; 
+    cursor: pointer;
+    padding: 5px;
+}
+.welcome p button:hover {
+    opacity: .5;
+}
+.userprojects{
+    padding: 20px;
+    padding-right: 12vw;
+    text-align: right;
+}
+.create{
+    margin: 20px; 
+    padding: 10px;
+    /* border: 2px solid black; */
+    color: white;
+    border-radius: 10px;
+    background-color: black;
+    font-size: 2vw;
+    cursor: pointer;
+}
+.create:hover{
+    opacity: .5;
+}
+.modal {
+    display: none;
+    position: fixed;
+    left: 25%;
+    top: 20%;
+    background-color: blueviolet;
+    width: 50%;
+    border: 1px solid white;
+    border-radius: 10px;
+}
+.modal p{
+    font-size: 2vw;
+    margin: 0 auto;
+    width: 90%;
+    padding-top: 2vw;
+}
+.modalclose{
+    float: right;
+    color: white;
+    font-size: 3vw;
+    margin: 8px;
+    cursor: pointer;
+}
+.modalclose:hover {
+    border: .5px solid white;
+    border-radius: 10px;
+}
+.modalform{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    border-radius: 20px;
+    padding: 20px;
+    /* opacity: .7; */
+    font-size: 2vw;
+}
+.modalform input, .modalform input{
+    color: black;
+}
+.modalform *, .modalform *{
+    padding: 10px;
+    width: 100%;
+    outline: none;
+    border-radius: 5px;
+    border: none;
+    font-size: 1vw;
+    color: white;
+}
+.modalform *:focus, .modalform *:focus{
+    border: 2px solid white;
+    color: black;
+}
+/* .usericondiv{
+    text-align: center;
+}
+.usericondiv img{
+    width: 30%;
+} */
+.submit-btn {
+    width: 20%;
+    background-color: blue;
+    outline: none;
+    border: none;       
+    color: white;
+    cursor: pointer;
+}
+.submit-btn:hover {
+    opacity: .5;
+}
+.help{
+    background-image: linear-gradient(blue, purple);
+    padding: 2vw;
+}
+.help h2{
+    font-size: 2.5vw;
+}
+.help hr{
+    color: white;
+    width: 50%;
+    border: 2px solid white;
+    margin-bottom: 20px;
+}
+.help span{
+    font-size: 2vw;
+}
+.help a{
+    color: white;
+    cursor: pointer;
+    font-size: 2vw;
+}
+#divtable {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 50%;
+    margin: 0 auto;
+    border: 1px solid #ddd;
+    color: white;
+    font-size: 2vw; 
+}  
+th, td {
+  text-align: left;
+  padding: 8px;
+  border: 1px solid;
+}
+  
+tr:nth-child(even){background-color: blueviolet}
+.faqsdiv{
+    font-size: 2vw;
+    padding: 2vw;
+}
+.faqsdiv .openfaqsbtn{
+    margin: 20px;
+    padding: 10px;
+    /* border: 2px solid black; */
+    color: white;
+    border-radius: 10px;
+    background-color: black;
+    font-size: 2vw;
+    cursor: pointer;
+}
+.faqsdiv .openfaqsbtn:hover{
+    opacity: .5;
+}
+.openfaqsdiv{
+    padding: 20px;
+    padding-right: 12vw;
+}
+.faqs {
+    margin-top: 4vw;
+    color: lightblue;
+    background-color: rgb(6, 6, 112);
+    border: 1px solid white;
+    border-radius: 10px;
+    padding: 2vw;
+    display: none;
+}
+.ans{
+    margin-top: 3vw;
+    margin-bottom: 3vw;
+}
