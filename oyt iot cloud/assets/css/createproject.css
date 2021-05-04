@@ -1,22 +1,23 @@
 .container{
-    background-color: blueviolet;
-    color: white;
+    background-color: #fff;
     width: 100%;
     font-size: 3vw;
     padding-top: 20px;
 }
-
+button{
+    cursor: pointer;
+}
 .welcome p{  
     width: 100%;
     font-size: 3vw;
     margin: 2vw;
     text-align: center;
+    color: #132c33;
 }
 .welcome h2{
     font-size: 2vw;
     outline: none;
     border: none;       
-    color: white; 
     cursor: pointer;
     padding: 5px;
 }
@@ -28,28 +29,41 @@
     padding-right: 12vw;
     text-align: right;
 }
-.create{
+.create
+{
+    margin: 20px; 
+    padding: 10px;
+    /* border: 2px solid black; */
+    color: #132c33;
+    border-radius: 10px;
+    border: 1px solid #132c33;
+    font-size: 2vw;
+    cursor: pointer;
+}
+.create:hover{
     margin: 20px; 
     padding: 10px;
     /* border: 2px solid black; */
     color: white;
     border-radius: 10px;
-    background-color: black;
+    background-color: #132c33;
     font-size: 2vw;
     cursor: pointer;
 }
-.create:hover{
-    opacity: .5;
+.ext-link{
+    float: right;
 }
+
 .modal {
     display: none;
     position: fixed;
     left: 25%;
     top: 20%;
-    background-color: blueviolet;
+    background-color: #132c33;
     width: 50%;
     border: 1px solid white;
     border-radius: 10px;
+    color: #d8e3e7;
 }
 .modal p{
     font-size: 2vw;
@@ -87,7 +101,6 @@
     border-radius: 5px;
     border: none;
     font-size: 1vw;
-    color: white;
 }
 .modalform *:focus, .modalform *:focus{
     border: 2px solid white;
@@ -101,19 +114,27 @@
 } */
 .submit-btn {
     width: 20%;
-    background-color: blue;
     outline: none;
-    border: none;       
-    color: white;
+    border: 1px solid #51c4d3;  
+background: transparent;
+    color: #51c4d3;
     cursor: pointer;
 }
 .submit-btn:hover {
-    opacity: .5;
+    background-color: #51c4d3;
+    color: #132c33;
+    
 }
 .help{
-    background-image: linear-gradient(blue, purple);
+    background-color: #132c33;
     padding: 2vw;
+    color: #d8e3e7;
 }
+.faqsdiv{
+    background-color: #fff;
+    color: #132c33;
+}
+
 .help h2{
     font-size: 2.5vw;
 }
@@ -134,35 +155,60 @@
 #divtable {
     border-collapse: collapse;
     border-spacing: 0;
-    width: 50%;
+    width: 90%;
     margin: 0 auto;
     border: 1px solid #ddd;
     color: white;
     font-size: 2vw; 
 }  
+
 th, td {
   text-align: left;
   padding: 8px;
   border: 1px solid;
+  color: #132c33;
 }
-  
-tr:nth-child(even){background-color: blueviolet}
+th{
+    background-color: #126e82;
+    color: #d8e3e7;
+    box-shadow: 0em 0.1em 0em rgba(0, 0, 0, 0.315);
+    text-align: center;
+}
+td:nth-child(1){
+    text-align: center;
+}
+td:nth-child(2){
+    text-align: center;
+}
+tr:nth-child(even){background-color: rgba(81, 196, 211, 0.2)}
 .faqsdiv{
     font-size: 2vw;
+}
+.support{
     padding: 2vw;
 }
+.support{
+    font-size: 1.5vw;
+}
+.actionBtns{
+    background: transparent;   
+    border: none;
+}
+.fa-trash-o{color: tomato;}
 .faqsdiv .openfaqsbtn{
     margin: 20px;
     padding: 10px;
     /* border: 2px solid black; */
     color: white;
     border-radius: 10px;
-    background-color: black;
     font-size: 2vw;
     cursor: pointer;
+    background-color: #132c33;
+    color: #d8e3e7;
 }
 .faqsdiv .openfaqsbtn:hover{
-    opacity: .5;
+    background-color: rgba(19, 44, 51, 0.9);
+    
 }
 .openfaqsdiv{
     padding: 20px;
@@ -170,14 +216,17 @@ tr:nth-child(even){background-color: blueviolet}
 }
 .faqs {
     margin-top: 4vw;
-    color: lightblue;
-    background-color: rgb(6, 6, 112);
+    color: #fff;
+    background-color: #126e82;
     border: 1px solid white;
-    border-radius: 10px;
     padding: 2vw;
     display: none;
 }
+.faqs a{
+    color: white;
+}
 .ans{
-    margin-top: 3vw;
+    font-size: 0.8em;
     margin-bottom: 3vw;
+    color: #d8e3e7;
 }

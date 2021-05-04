@@ -24,7 +24,6 @@
 ?>
 <!DOCTYPE HTML>
 <html lang="en">
-
 <head>
     <title>Projects of </title>
     <meta charset="utf-8" />
@@ -32,7 +31,6 @@
     <link rel="stylesheet" href="./../assets/css/main.css" />
     <link rel="stylesheet" href="./../assets/css/font-awesome.min.css">
     <link rel="stylesheet" href="./../assets/css/createproject.css" />
-
 </head>
 
 <body>
@@ -85,11 +83,12 @@
         <div class="welcome">
             <p>Welcome, <span id="username"></span id="username"></p>
             <!-- <p><button>Edit Account</button></p> -->
-            <p>Projects Added</p>
+            <p style="text-align:left; padding-left:25px">Projects <hr></p>
         </div>
         <table id="divtable">
             <tr>
                 <th>S. No.</th>
+                <th></th>
                 <th>Project Name</th>
                 <th>Project Description</th>
                 <th>Created At</th>
@@ -159,10 +158,12 @@
             <hr>
             <span>Refer <a href="oytclouddocs.php">our cloud docs</a>, to know to how to use our platform step by step(in detail)</span>
         </div>
-        <div class="help faqsdiv">
-            <h2>OYT IoT Cloud Discussion Forum</h2>
-            <hr>
+        <div class="faqsdiv">
+            <div class="support">
+                <h2>OYT IoT Cloud Discussion Forum</h2>
+                <hr>
             <span>We also provide a place for our users to interect, discuss, & find solutions to any of there platform related problem.</span>
+            </div>
             <div id="faqs" class="openfaqsdiv">
                 <a href="#faqs" class="openfaqsbtn"><span>Refer FAQs<span style="color: white;">▼</span></span></a>
             </div>

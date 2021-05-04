@@ -3,9 +3,10 @@ header('Content-Type: application/json');
 
 require "connection.php";
 // $project_id=@$_COOKIE["projectid"];
-$id = @$_COOKIE["device_sno"];
+// $id = @$_COOKIE["device_sno"];
+$id ="";
 $device_token= $_POST['device_token'];
-if (!$id) $id = 0;
+// if (!$id) $id = 0;
 // function mysqli_result($res, $row, $field=0) { 
 //     $res->data_seek($row); 
 //     $datarow = $res->fetch_array();

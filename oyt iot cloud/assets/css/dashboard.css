@@ -1,13 +1,24 @@
+body{
+    background-color: white;
+}
 .all {
     display: flex;
+}
+#pj-name{
+    padding: 20px;
+    text-align: center;
+    text-decoration: underline;
 }
 .customizesection{
     border: 2px solid cadetblue;
     padding: 20px;
     text-align: center;
-    width: 33%;
+    width: 60%;
     height: 500px;
     overflow-y: scroll;
+}
+.customizesection:nth-child(2){
+    width: 40%;
 }
 .close{
     float: left;
@@ -29,7 +40,28 @@
     border-radius: 10px;
     background-color: brown;
 }
-.modal {
+.showadddevicesmodalbtn{
+    float: right;
+    margin:2px; 
+    padding: 8px;
+    background: transparent;
+    /* border: 2px solid black; */
+    color: #132c33;
+    border-radius: 0.8em;
+    border: 1px solid #132c33;
+    font-size: 1vw;
+    cursor: pointer;
+}
+.showadddevicesmodalbtn:hover{
+    color: white;
+    font-size: 1vw;
+
+    border-radius: 10px;
+    background-color: #132c33;
+ 
+    cursor: pointer;
+}
+/* .modal {
     display: none;
     position: fixed;
     left: 10%;
@@ -57,4 +89,67 @@ span{
     color: white;
     background-color: red;
     padding: 10px 10px;
+} */
+.btnctrl{
+    padding-top: 50px;
+}
+.btnctrl .notactive{
+    margin:2px; 
+    padding: 8px;
+    background: transparent;
+    /* border: 2px solid black; */
+    color: #132c33;
+    border-radius: 0.8em;
+    border: 1px solid #132c33;
+    font-size: 1vw;
+    cursor: pointer;
+}
+.btnctrl .notactive:hover{
+   
+    color: white;
+    font-size: 1vw;
+
+    border-radius: 10px;
+    background-color: #132c33;
+ 
+    cursor: pointer;
+}
+.active{
+    background-color: #132c33;
+    margin:2px; 
+    padding: 8px;
+    /* border: 2px solid black; */
+    color: #fff;
+    border-radius: 0.8em;
+    border: 1px solid #132c33;
+    font-size: 1vw;
+    cursor: pointer;
+}
+.btnctrl .active:hover{
+    color: white;
+    font-size: 1vw;
+    border-radius: 10px;
+    background-color: #132c33;
+    cursor: pointer;
+}
+#adddatamanually{
+    margin:2px; 
+    padding: 8px;
+    background: transparent;
+    /* border: 2px solid black; */
+    color: #132c33;
+    border-radius: 0.8em;
+    border: 1px solid #132c33;
+    font-size: 1vw;
+    cursor: pointer;
+}
+#adddatamanually:hover{
+   
+    color: white;
+    font-size: 1vw;
+
+    border-radius: 10px;
+    background-color: #132c33;
+ 
+    cursor: pointer;
 }

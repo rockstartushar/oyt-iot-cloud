@@ -35,6 +35,66 @@ function openNav(){
         
     }
 }
+// updateaccountmodalform
+var updateaccountmodal = document.querySelector(".updateaccountmodal");
+var updateaccountmodalclose = document.querySelector(
+  ".updateaccountmodalclose"
+);
+var updatebtn = document.querySelector(".updatebtn");
+updatebtn.onclick = function () {
+  validatetologin();
+  alert("dfhi");
+  updateaccountmodal.style.display = "block";
+};
+window.onclick = function (event) {
+  if (event.target == updateaccountmodal) {
+    updateaccountmodal.style.display = "none";
+  }
+};
+updateaccountmodalclose.onclick = function () {
+  updateaccountmodal.style.display = "none";
+};
+$(document).on("submit", "#update_account_form", function () {
+  validatetologin();
+  var jwt = getCookie("jwt1");
+  var obj = [];
+  obj.email = $("#email").val();
+  obj.name = $("#name").val();
+  obj.password = $("#password").val();
+  obj.jwt = jwt;
+
+  // sending data to api here
+  $.ajax({
+    url: "updateuser.php",
+    type: "POST",
+    data: {
+      name: obj.name,
+      email: obj.email,
+      password: obj.password,
+      jwt: obj.jwt,
+    },
+    success: function (result) {
+      console.log(result);
+      // tell the user account was updated
+      // console.log(result);
+      console.log(result);
+      // store new jwt to coookie
+      setCookie("jwt1", result.jwt1, 1);
+      validatetologin();
+    },
+
+    // errors is handling here
+    // show error message to user
+    error: function (xhr, resp, text) {
+      console.log(xhr, resp, text);
+      alert(xhr.responseJSON);
+      setCookie("jwt1", "", 1);
+      window.location =
+        "http://localhost/mfsc2/oyt%20iot%20cloud/api/login-user.php";
+    },
+  });
+  return false;
+});
 
 // setCookie() & getCookie() defined here
 function setCookie(cname, cvalue, exdays) {

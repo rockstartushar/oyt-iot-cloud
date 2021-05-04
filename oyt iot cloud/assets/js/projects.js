@@ -8,66 +8,6 @@ document.querySelector("#logout").onclick = function () {
   window.location =
     "http://localhost/mfsc2/oyt%20iot%20cloud/api/login-user.php";
 };
-// updateaccountmodalform
-var updateaccountmodal = document.querySelector(".updateaccountmodal");
-var updateaccountmodalclose = document.querySelector(
-  ".updateaccountmodalclose"
-);
-var updatebtn = document.querySelector(".updatebtn");
-updatebtn.onclick = function () {
-  validatetologin();
-  alert("dfhi");
-  updateaccountmodal.style.display = "block";
-};
-window.onclick = function (event) {
-  if (event.target == updateaccountmodal) {
-    updateaccountmodal.style.display = "none";
-  }
-};
-updateaccountmodalclose.onclick = function () {
-  updateaccountmodal.style.display = "none";
-};
-$(document).on("submit", "#update_account_form", function () {
-  validatetologin();
-  var jwt = getCookie("jwt1");
-  var obj = [];
-  obj.email = $("#email").val();
-  obj.name = $("#name").val();
-  obj.password = $("#password").val();
-  obj.jwt = jwt;
-
-  // sending data to api here
-  $.ajax({
-    url: "updateuser.php",
-    type: "POST",
-    data: {
-      name: obj.name,
-      email: obj.email,
-      password: obj.password,
-      jwt: obj.jwt,
-    },
-    success: function (result) {
-      console.log(result);
-      // tell the user account was updated
-      // console.log(result);
-      console.log(result);
-      // store new jwt to coookie
-      setCookie("jwt1", result.jwt1, 1);
-      validatetologin();
-    },
-
-    // errors is handling here
-    // show error message to user
-    error: function (xhr, resp, text) {
-      console.log(xhr, resp, text);
-      alert(xhr.responseJSON);
-      setCookie("jwt1", "", 1);
-      window.location =
-        "http://localhost/mfsc2/oyt%20iot%20cloud/api/login-user.php";
-    },
-  });
-  return false;
-});
 
 // Create/add Project
 // addprojectmodal
@@ -104,15 +44,13 @@ Comet = {
         let projects = "";
         if(globlelastId!=evt[0].id){
           evt.forEach(
-          ({ id, project_name, project_des, created_at }) =>
+          ({ id, project_name, project_des, created_at }, index) =>
             (projects = `<tr>
-											<td pj-id="${id}">${id}</td></td>
-											<td pj-id="${id}">${project_name}</td>
-											<td pj-id="${id}">${project_des}</td>
-											<td pj-id="${id}">${created_at}</td>
-                      <td pj-id="${id}"><button onclick="showeditprojectmodal(${id})">Edit</button></td>
-                      <td pj-id="${id}"><button onclick="showdeleteprojectmodal(${id})">Delete</button></td>
-                      <td pj-id="${id}"><button onclick="gotodashboard(${id})">Enter</button></td>
+            <td pj-id="${id}">${index+1}</td>
+            <td pj-id="${id}"><button onclick="showdeleteprojectmodal(${id})" class="actionBtns"><i class="fa fa-trash-o" style="font-size:24px"></i></button> / <button onclick="showeditprojectmodal(${id})" class="actionBtns"><i class='fa fa-edit' style='font-size:24px'></i></button></td>
+            <td pj-id="${id}" onclick="gotodashboard(${id}, "dffg")">${project_name} <span class="ext-link"><i class="fa fa-external-link" style="font-size:24px"></i></span></td>
+            <td pj-id="${id}">${project_des}</td>
+            <td pj-id="${id}">${created_at}</td>
 										</tr>`)
         );
       }
@@ -151,21 +89,20 @@ $(document).ready(function () {
       globlelastId=evt[len-1].id;
       let projects = "";
       evt.forEach(
-        ({ id, project_name, project_des, created_at }) =>
+        ({ id, project_name, project_des, created_at }, index) =>
           (projects += `<tr>
-							<td pj-id="${id}">${id}</td>
-							<td pj-id="${id}">${project_name}</td>
+							<td pj-id="${id}">${index+1}</td>
+              <td pj-id="${id}"><button onclick="showdeleteprojectmodal(${id})" class="actionBtns"><i class="fa fa-trash-o" style="font-size:24px"></i></button> / <button onclick="showeditprojectmodal(${id})" class="actionBtns"><i class='fa fa-edit' style='font-size:24px'></i></button></td>
+							<td pj-id="${id}" onclick="gotodashboard(\'${id}\', \'${project_name}\')">${project_name} <span class="ext-link"><i class="fa fa-external-link" style="font-size:24px"></i></span></td>
 							<td pj-id="${id}">${project_des}</td>
 							<td pj-id="${id}">${created_at}</td>
-              <td pj-id="${id}"><button onclick="showeditprojectmodal(${id})">Edit</button></td>
-              <td pj-id="${id}"><button onclick="showdeleteprojectmodal(${id}")>Delete</button></td>
-              <td pj-id="${id}"><button onclick="gotodashboard(${id})">Enter</button></td>
 						</tr>`)
       );
 
       // $("#destiny-area").prepend(evt + "<br />");
       document.getElementById("divtable").innerHTML += projects;
       document.addEventListener("DOMContentLoaded", Comet.success);
+      
     },
   });
   $("#createprojectbtn").click(function () {
@@ -206,8 +143,8 @@ function showeditprojectmodal(id) {
   // alert(id);
   var projectdetails = document.querySelectorAll(`[pj-id=${CSS.escape(id)}]`);
   console.log(projectdetails[1].innerHTML);
-  $("#new_project_name").val(projectdetails[1].innerHTML);
-  $("#new_project_des").val(projectdetails[2].innerHTML);
+  $("#new_project_name").val(projectdetails[2].innerHTML.split("<span")[0]);
+  $("#new_project_des").val(projectdetails[3].innerHTML);
 
   setCookie("editprojectid", id, 1);
   editprojectmodal.style.display = "block";
@@ -261,9 +198,10 @@ $(document).on("submit", "#editprojectmodalform", function () {
   return false;
 });
 // Go to dashbpard
-function gotodashboard(id) {
+function gotodashboard(id,pjname) {
   validatetologin();
   setCookie("dashboardprojectid", id, 1);
+  setCookie("pjname", pjname, 1);
   window.location =
     "http://localhost/mfsc2/oyt%20iot%20cloud/api/dashboard.php";
 }
