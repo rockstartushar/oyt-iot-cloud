@@ -137,7 +137,10 @@ function validatetologin() {
         if (result.message == "Access granted.") {
           console.log(result.data.user);
           console.log(result);
-          $("#username").html(result.data.user);
+          // $("#username").html(result.data.user);
+          for(var i=0; i<document.querySelectorAll(".username").length;i++){
+            document.querySelectorAll(".username")[i].innerHTML=result.data.user;
+          }
           $("#name").val(result.data.user);
           $("#email").val(result.data.email);
           $("title").html(`${result.data.user} | Projects`);

@@ -31,6 +31,7 @@
             </div>
         </div>
         <div class="right-nav">
+            <a class="nav-items username" href="createproject.php"></a>
             <a class="nav-items login" href="logout-user.php" id="logout">Logout</a>
             <a class="nav-items updatebtn">Update Account</a>
         </div>
@@ -82,16 +83,34 @@
           <div class="closedone">
 
           </div>
+          <div>
+          <h2 class="devicehead1">Devices</h2>
+        <div class="btnadddevicediv">
+        <button class="showadddevicesmodalbtn">Add Devices</button>
+        </div>  
+          </div>
+          <div>                  
+            <table id="divtable">
+            <tr>
+                <th>S. No.</th>
+                <th>Device Name</th>
+                <th>Device Type</th>
+                <th>Created At</th>
+            </tr>
+            </table>
+        </div>
+
+          
+          <div class="btnctrl"></div>
           <div class="all">
               <!-- Device section -->
               <div class="customizesection devicesec">
-                  <span id="device" onclick="closeSec(id)" class="close">&times;</span>
+                  <!-- <span id="device" onclick="closeSec(id)" class="close">&times;</span> -->
                   <span id="device" onclick="fullScreen(id)" class="size">&#x26F6;</span>
                   
                   <div class="devicetable"></div>
-                  <button class="showadddevicesmodalbtn">Add Devices</button>
-                  <div class="adddatamodal modal">
-                    <a class="adddatamodalclose modalclose">&times;</a>
+                  <div class="adddevicemodal modal">
+                    <a class="adddevicemodalclose modalclose">&times;</a>
                     <p>Add Devices</p>
                     <hr>
                     <form class="adddevicesform modalform" action="" method="post">
@@ -126,13 +145,12 @@
                     </div>
                     </form>
                 </div>
-                <h2>Devices</h2>
+                <h2 class="devicehead">Devices</h2>
                   
-                   <table id="divtable">
+                   <table id="datavaluetable">
             <tr>
                 <th>S. No.</th>
-                <th>Device Name</th>
-                <th>Device Type</th>
+                <th>Field Value</th>
                 <th>Created At</th>
             </tr>
         </table>
@@ -198,11 +216,12 @@
                     Still, having query? find in discussion forum(for services section):) <a href="">OYT IOT CLOUD DISCUSSION FORUM</a>
                   </div> 
               </div> -->
+              
+
               <div class="customizesection dashboardsec">
-                  <span id="dashboard" onclick="closeSec(id)" class="close">&times;</span>
+                  <!-- <span id="dashboard" onclick="closeSec(id)" class="close">&times;</span> -->
                   <span id="dashboard" onclick="closeSec(id)" class="size">&#x26F6;</span>
-                  <h2>Dashboard</h2>
-                  <div class="btnctrl"></div>
+                  <h2 class="devicehead">Dashboard</h2>
                   <div class="dashboardarea">
 
                   </div>
@@ -227,10 +246,10 @@
                     <form class="adddatamodalform modalform" action="" method="post">
                         <small id="adddatamodalerror modalerror"></small>
                         <div>
-                            <input type="text" name="device_token" id="device_token" placeholder="Device Token" required>
+                            <input type="text" name="add_device_token" id="add_device_token" placeholder="Device Token" required>
                         </div>
                         <div>
-                            <input type="text" name="field_value" id="field_value" placeholder="Value of Field" required>
+                            <input type="text" name="add_field_value" id="add_field_value" placeholder="Value of Field" required>
                         </div>
                         <div>
                             <button class="submit-btn" id="adddatavalue" type="submit">Cofirm Edit</button>
@@ -240,14 +259,6 @@
               </div>
           </div>
               <hr>
-          <div class="modal">
-            <span class="close">&times;</span>
-            <form action="samplepage.php" class="modalform">
-                <input type="text" name="projectname" id="projectname" placeholder="Your project name">
-                <textarea name="projectdescription" id="" cols="30" rows="10"></textarea>
-                <input type="submit" class="submit" value="Customize your project section">
-            </form>
-          </div>
           <div class="help">
             <h2>OYT IoT Cloud Support</h2>
             <hr>

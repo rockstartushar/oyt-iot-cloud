@@ -1,5 +1,6 @@
 validatetologin();
 document.querySelector("#pj-name").innerHTML=getCookie("pjname")
+// document.querySelector(".username").innerHTML=getCookie("pjname")
 
 var count=0;
 function showServices( device_token, field, device_type){
@@ -11,7 +12,7 @@ function showServices( device_token, field, device_type){
 	document.getElementById(`${device_token}`).classList.add("active");
 	document.getElementById(`${device_token}`).classList.remove("notactive");
 	if(count==0){
-		document.querySelector(".dashboardarea").innerHTML+=`<button id="adddatamanually" onclick="adddatamanually(\'${device_token}\')">Add Data Manually</button>`;
+		document.querySelector(".dashboardarea").innerHTML+=`<button id="adddatamanuallymodalshowbtn" onclick="adddatamanually(\'${device_token}\')">Add Data Manually</button>`;
 		count++;
 	}
 	$.ajax({
@@ -61,7 +62,7 @@ function showServices( device_token, field, device_type){
           }
          showline();
 		} else{
-			alert("efg");
+			alert("map");
 			document.querySelector("#map").style.display="block";
 				document.querySelector("#chart").style.display="none";
 			// Initialize and add the map
@@ -86,6 +87,38 @@ function initMap() {
 			    alert("Error! So, Can see your data here:- ", data);
 			}
 		});   
+		$(document).ready(function () {
+			$.ajax({
+			  url: "export.php",
+			  method: "POST",
+			  data: {export_device_token: device_token},
+			  success: function (evt, request) {
+				if (typeof evt == "string") {
+				  evt = JSON.parse(evt);
+				  console.log(evt);
+				}
+				  console.log(evt[0]);
+				// alert(typeof evt);
+				let tabledata = "";
+								evt.forEach(
+									({
+										id,
+										field_name,
+										at
+									}, index) =>
+									(tabledata += `<tr class="devicerow">
+													<td class="${id}">${index+1}</td>
+													<td class="${id}">${field_name}</td>
+													<td class="${id}">${at}</td>
+												</tr>`)
+								)
+		
+								// $("#destiny-area").prepend(evt + "<br />");
+								document.getElementById("datavaluetable").innerHTML += tabledata;
+								document.addEventListener("DOMContentLoaded", Comet.success);
+							},
+			});
+		});
 }
 //createChart()
 function createservices(dd){
@@ -100,26 +133,29 @@ function createservices(dd){
 	console.log(devicelist);
 }
 // add data manually form
-
 var adddatamodal = document.querySelector(".adddatamodal");
-var adddatamodalclose = document.querySelector(".adddatamodalclose");
-var adddatabtn = document.querySelector("#adddatamanualy");
-var globlelastId;
-adddatamodalclose.onclick = function() {
-	adddatamodal.style.display = "none";
+document.querySelector("#adddatamodalclose").onclick=function(){
+	adddatamodal.style.display="none";
+}
+window.onclick = function (event) {
+	if (event.target == adddatamodal) {
+	  adddatamodal.style.display = "none";
+	}
 };
 function adddatamanually(device_token){
 	validatetologin();
-adddatamodal.style.display = "block";
-window.onclick = function (event) {
-  if (event.target == adddatamodal) {
-    adddatamodal.style.display = "none";
-  }
-};
+	var adddatamodalclose = document.querySelector(".adddatamodalclose");
+	adddatamodal.style.display="block";
+	$("#add_device_token").val(device_token);
+	window.onclick = function (event) {
+	  if (event.target == adddatamodal) {
+	    adddatamodal.style.display = "none";
+	  }
+	};
 Comet = {
   connect: function () {
     return $.ajax({
-      url: "projectbind.php",
+      url: "addchartsdata.php",
       method: "GET",
       success: function(evt, request) {
         if (typeof evt == "string") {
@@ -127,25 +163,6 @@ Comet = {
           console.log(evt);
         }
         // console.log(evt[0].id);
-        
-        let projects = "";
-        if(globlelastId!=evt[0].id){
-          evt.forEach(
-          ({ id, project_name, project_des, created_at }) =>
-            (projects = `<tr>
-							<td pj-id="${id}">${id}</td></td>
-							<td pj-id="${id}">${project_name}</td>
-							<td pj-id="${id}">${project_des}</td>
-											<td pj-id="${id}">${created_at}</td>
-                      <td pj-id="${id}"><button onclick="showeditprojectmodal(${id})">Edit</button></td>
-                      <td pj-id="${id}"><button onclick="showdeleteprojectmodal(${id})">Delete</button></td>
-                      <td pj-id="${id}"><button onclick="gotodashboard(${id})">Enter</button></td>
-										</tr>`)
-        );
-      }
-        globlelastId=evt[0].id;
-        // $("#destiny-area").prepend(evt + "<br />");
-        document.getElementById("divtable").innerHTML += projects;
         document.addEventListener("DOMContentLoaded", Comet.success);
       },
       complete: function () {
@@ -154,12 +171,11 @@ Comet = {
     });
   },
 
-  send: function (...projectData) {
+  send: function (...deviceDataValue) {
     // if(projectData[0]=="xyz")
-    $.post("addprojects.php", {
-      project_name: projectData[0],
-      project_des: projectData[1],
-      userid: id,
+    $.post("addchartsdata.php", {
+		device_token: deviceDataValue[0],
+		field_value: deviceDataValue[1],
     });
   },
 };
@@ -180,8 +196,14 @@ $("#createprojectbtn").click(function () {
 // Add charts data automatically, whenever new data is updated.
 // Show device modal
 document.querySelector(".showadddevicesmodalbtn").onclick=function(){
-	document.querySelector(".adddatamodal").style.display="block";
+	document.querySelector(".adddevicemodal").style.display="block";
 }
+document.querySelector(".adddevicemodalclose").onclick=function(){
+	document.querySelector(".adddevicemodal").style.display="none";
+}
+// window.onclick=function(){
+// 	document.querySelector(".adddevicemodal").style.display="none";
+// }
 // Device list from the 1st time
 $(document).ready(function () {
 	$.ajax({
@@ -194,7 +216,6 @@ $(document).ready(function () {
 		  console.log(evt);
 		}
 		  console.log(evt[0]);
-
 		// alert(typeof evt);
 		let tabledata = "";
 						evt.forEach(
@@ -236,7 +257,7 @@ Comet = {
 								device_type,
 								created_at
 							}, index) =>
-							(tabledata = `<tr>
+							(tabledata += `<tr class="devicerow">
 											<td class="${id}">${index+1}</td>
 											<td class="${id}">${device_name}</td>
 											<td class="${id} device_type">${device_type}</td>
@@ -321,7 +342,8 @@ Comet = {
 				}
 				
 			});
-			// faq toggle
+			
+// faq toggle
 var openfaqsbtn = document.querySelector(".openfaqsbtn");
 var faqs = document.querySelector(".faqs");
 openfaqsbtn.onclick = function () {

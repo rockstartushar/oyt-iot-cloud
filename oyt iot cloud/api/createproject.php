@@ -54,6 +54,7 @@
             </div>
         </div>
         <div class="right-nav">
+        <a class="nav-items username" href="createproject.php"></a>
             <a class="nav-items login" id="logout">Logout</a>
             <a class="nav-items updatebtn">Update Account</a>
         </div>
@@ -81,7 +82,7 @@
     </div>
     <div class="container">
         <div class="welcome">
-            <p>Welcome, <span id="username"></span id="username"></p>
+            <p>Welcome, <span class="username"></span></p>
             <!-- <p><button>Edit Account</button></p> -->
             <p style="text-align:left; padding-left:25px">Projects <hr></p>
         </div>
