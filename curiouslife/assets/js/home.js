@@ -15,20 +15,16 @@ document.querySelector(".latestfeeddiv").onclick= function () {
       console.log(result);
       // tell the user account was updated
       // console.log(result);
-      console.log(result);
+      // console.log(result);
+      // window.location="feed.php";
       // store new jwt to coookie
-      setCookie("jwt1", result.jwt1, 1);
-      validatetologin();
     },
 
     // errors is handling here
     // show error message to user
     error: function (xhr, resp, text) {
       console.log(xhr, resp, text);
-      alert(xhr.responseJSON);
-      setCookie("jwt1", "", 1);
-      window.location =
-        "http://localhost/mfsc2/oyt%20iot%20cloud/api/login-user.php";
+      console.log(xhr.responseJSON);
     },
   });
   return false;

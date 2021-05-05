@@ -72,8 +72,8 @@
             <div class="fimg"><img src="../images/collect-1.svg.png" alt=""></div>
             <div class="fdetails">
                 
-            <h2 class="feedtitle">Collect and control</h2>
-                <p>Connect and manage IoT devices via the cloud using graphical UI or REST API. Collect and visualize telemetry using a built-in dashboard or 3rd party tools like Grafana.</p>
+            <h2 class="feedtitle">THE ART OF DOING NOTHING</h2>
+                <p>In a world that relishes productivity, doing nothing seems almost impossible, making it even more vital to our well-being and mental health. In fact, this idea of Niksen, which literally means "to do nothing," is practiced by the Dutch often, and is now being recommended by health professionals to reduce burnout and combat stress. </p>
                 <span class="tags">#sbc #dsvhj #cvdf #dvl #cdbb</span>
             </div>
         </div>
