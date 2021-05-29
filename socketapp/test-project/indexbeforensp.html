@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Hello world</title>
+   </head>
+   <script src="/socket.io/socket.io.js"></script>
+   <script>
+       var ws= io();
+      // socket.on('message', function(data){document.write(data)});
+    //   ws.on('testerEvent', function(data){document.write(data.description)}); 
+    //    ws.emit('clientEvent', 'Sent an event from the client!');
+    ws.on('newclientconnect', function(data){
+        document.body.innerHTML = "";
+        document.write(data.description);
+    })
+   </script>
+   <body>Hello world</body>
+</html>

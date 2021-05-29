@@ -59,60 +59,33 @@
     
     <!-- Steps to get started -->
     <div class="banner">
-        <div class="bannertxt">
-            <h1>Welcome  to<div><span> Curiuos Life</span></div></h1>
-            <p>Spiritual wisdomic feeds waiting for you.</p>
-            <a href="signup-user.php"><strong>Get Started</strong></a>
-        </div>
+        <iframe width="100%" height="600" src="https://www.youtube.com/embed/MDCYPN_Lan0" title="Curious Life Latest" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
 <!-- Our Cloud -->
 <div class="latestfeeds">
-        <h1>Latest Feeds</h1>
-        <div class="latestfeeddiv">
-            <div class="fimg"><img src="../images/collect-1.svg.png" alt=""></div>
-            <div class="fdetails">
-                
-            <h2 class="feedtitle">THE ART OF DOING NOTHING</h2>
-                <p>In a world that relishes productivity, doing nothing seems almost impossible, making it even more vital to our well-being and mental health. In fact, this idea of Niksen, which literally means "to do nothing," is practiced by the Dutch often, and is now being recommended by health professionals to reduce burnout and combat stress. </p>
-                <span class="tags">#sbc #dsvhj #cvdf #dvl #cdbb</span>
-            </div>
+        <h1>Want to connect with spirituality?</h1>
+        <br>
+        <div class="ourvideosarea">
+        <div class="ourvideo">
+        <iframe width="100%" height="200" src="https://www.youtube.com/embed/MDCYPN_Lan0" title="Curious Life Latest" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
         </div>
-        <div class="latestfeeddiv">
-            <div class="fimg"><img src="../images/collect-2.png" alt=""></div>
-            <div class="fdetails">
-                
-            <h2 class="feedtitle">Collect and control</h2>
-                <p>Connect and manage IoT devices via the cloud using graphical UI or REST API. Collect and visualize telemetry using a built-in dashboard or 3rd party tools like Grafana.</p>     
-                <span class="tags">#sbc #dsvhj #cvdf #dvl #cdbb</span>
-         </div>
+        <div class="ourvideo">
+        <iframe width="100%" height="200" src="https://www.youtube.com/embed/MDCYPN_Lan0" title="Curious Life Latest" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
         </div>
-        <div class="latestfeeddiv">
-            <div class="fimg"><img src="../images/collect-1.svg.png" alt=""></div>
-            <div class="fdetails">
-                
-            <h2 class="feedtitle">Collect and control</h2>
-                <p>Connect and manage IoT devices via the cloud using graphical UI or REST API. Collect and visualize telemetry using a built-in dashboard or 3rd party tools like Grafana.</p>     
-                <span class="tags">#sbc #dsvhj #cvdf #dvl #cdbb</span>
-            </div>
+        <div class="ourvideo">
+        <iframe width="100%" height="200" src="https://www.youtube.com/embed/MDCYPN_Lan0" title="Curious Life Latest" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
         </div>
-        <div class="latestfeeddiv">
-            <div class="fimg"><img src="../images/collect-2.png" alt=""></div>
-            <div class="fdetails">
-                
-            <h2 class="feedtitle">Collect and control</h2>
-                <p>Connect and manage IoT devices via the cloud using graphical UI or REST API. Collect and visualize telemetry using a built-in dashboard or 3rd party tools like Grafana.</p>     
-                <span class="tags">#sbc #dsvhj #cvdf #dvl #cdbb</span>
-            </div>
+        <div class="ourvideo">
+            <iframe width="100%" height="200" src="https://www.youtube.com/embed/MDCYPN_Lan0" title="Curious Life Latest" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>  
         </div>
-        <div class="latestfeeddiv">
-            <div class="fimg"><img src="../images/collect-1.svg.png" alt=""></div>
-            <div class="fdetails">
-                
-            <h2 class="feedtitle">Collect and control</h2>
-                <p>Connect and manage IoT devices via the cloud using graphical UI or REST API. Collect and visualize telemetry using a built-in dashboard or 3rd party tools like Grafana.</p>     
-                <span class="tags">#sbc #dsvhj #cvdf #dvl #cdbb</span>
-            </div>
         </div>
+        <div class="ourvideo">
+            <iframe width="100%" height="200" src="https://www.youtube.com/embed/MDCYPN_Lan0" title="Curious Life Latest" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        
 </div>
     <!-- Steps to get started -->
     <div class="iotintro">
